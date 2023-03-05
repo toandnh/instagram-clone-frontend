@@ -1,1 +1,1 @@
-# instagram-clone-frontend
+# Instagram Clone Frontend
