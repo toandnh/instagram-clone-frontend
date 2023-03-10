@@ -5,9 +5,9 @@ import { useGetUsersQuery } from '../../../services/users/usersApi'
 
 import useAuth from '../../../hooks/useAuth'
 
-import CommentLine from '../comments/commentLine'
-import CommentsList from '../comments/commentsList'
-import CreateComment from '../comments/createComment'
+import CommentLine from '../../comments/commentLine'
+import CommentsList from '../../comments/commentsList'
+import CreateComment from '../../comments/createComment'
 
 import PostImages from './postImages'
 import PostHeader from '../postHeader'

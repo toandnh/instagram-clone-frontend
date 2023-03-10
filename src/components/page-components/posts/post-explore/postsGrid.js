@@ -37,7 +37,6 @@ const PostsGrid = () => {
         
     if (isSuccess) {
         const { ids } = posts
-        console.log(ids)
         const postsGrid = ids?.length
             ? ids.map((postId) => !user?.posts.includes(postId) && <PostPreview key={postId} postId={postId} />)
             : null

@@ -13,7 +13,7 @@ import { setModalOpened } from '../../../features/modal/modalSlice'
 import PostHeader from '../postHeader'
 import PostImages from '../post-explore/postImages'
 import ButtonsPost from '../../buttons/buttonGroupPost'
-import CreateComment from '../comments/createComment'
+import CreateComment from '../../comments/createComment'
 import SpinnerLoader from '../../spinner-loader/spinnerLoader'
 
 

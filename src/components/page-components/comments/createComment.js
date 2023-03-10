@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 
-import { useAddNewCommentMutation } from '../../../services/comments/commentsApi'
-import { useUpdatePostMutation } from '../../../services/posts/postsApi'
+import { useAddNewCommentMutation } from '../../services/comments/commentsApi'
+import { useUpdatePostMutation } from '../../services/posts/postsApi'
 
 
 const CreateComment = ({ postId, userId }) => {

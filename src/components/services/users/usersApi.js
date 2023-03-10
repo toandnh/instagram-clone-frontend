@@ -34,6 +34,32 @@ export const usersApi = apiSlice.injectEndpoints({
                 }
             }
         }),
+        searchUser: build.query({
+            query: (query) => ({
+                url: `/users/${query}`,
+                validateStatus: (response, result) => {
+                    return response.status === 200 && !result.isError
+                }
+            }), 
+            keepUnusedDataFor: 60,
+            transformResponse: (responseData) => {
+                const loadedUsers = responseData.map((user) => {
+                    user.id = user._id
+                    return user
+                })
+                return usersAdapter.setAll(initialState, loadedUsers)
+            },
+            providesTags: (result, error, arg) => {
+                if (result?.ids) {
+                    return [
+                        { type: 'User', id: 'LIST' },
+                        ...result.ids.map((id) => ({ type: 'User', id }))
+                    ]
+                } else {
+                    return [{ type: 'User', id: 'LIST' }]
+                }
+            }
+        }),
         addNewUser: build.mutation({
             query: (initialUserData) => ({
                 url: '/users',
@@ -82,6 +108,7 @@ export const usersApi = apiSlice.injectEndpoints({
 
 export const { 
     useGetUsersQuery, 
+    useSearchUserQuery,
     useAddNewUserMutation,
     useUpdateUserMutation,
     useUpdateFollowMutation,

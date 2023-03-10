@@ -12,9 +12,9 @@ import { default as fullLogo } from './../../images/vector.png'
 
 import useAuth from '../../hooks/useAuth'
 
-import CreatePost from './createPost'
+import CreatePost from '../posts/createPost'
 
-import Search from './search'
+import Search from '../search/search'
 import Notifications from './notifications'
 import More from './more'
 

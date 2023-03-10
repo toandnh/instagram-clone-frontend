@@ -1,7 +1,7 @@
-import { useGetCommentsByPostIdQuery } from '../../../services/comments/commentsApi'
+import { useGetCommentsByPostIdQuery } from '../../services/comments/commentsApi'
 
 import Comment from './comment'
-import SpinnerLoader from '../../spinner-loader/spinnerLoader'
+import SpinnerLoader from '../spinner-loader/spinnerLoader'
 
 
 const CommentsList = ({ postId }) => {
