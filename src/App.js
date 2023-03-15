@@ -1,6 +1,9 @@
 import './App.css'
 
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Routes, Route } from 'react-router-dom'
+
+import { modalOpened } from './components/features/modal/modalSlice'
 
 import PersistLogin from './components/auth/persistLogin'
 import LogoutListener from './components/auth/logoutListener'
@@ -20,12 +23,11 @@ import Modal from './components/layout/modal'
 
 
 function App() {
-  const location = useLocation()
-  const background = location.state && location.state.background
+  const modal = useSelector(modalOpened)
 
   return (
     <div className='App'>
-      <Routes location={background || location}>
+      <Routes>
         <Route path='login/' element={<Login1 />} />
 
         <Route path='login-alt/' element={<Login2 />} />
@@ -53,7 +55,7 @@ function App() {
         </Route>
       </Routes>
 
-      {background && (
+      {modal && (
         <Routes>
           <Route path='posts/:postId' element={<Modal />} />
         </Routes>

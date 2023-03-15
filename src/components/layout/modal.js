@@ -20,15 +20,25 @@ const Modal = () => {
     }
 
     return (
-        <MuiModal
-            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-            open={opened}
-            onClose={handleClose}
-        >
-            <div className='h-[95%] w-[70%] flex justify-center items-center'>
-                <PostModal />
-            </div>
-        </MuiModal>
+        <>
+            {opened 
+                ?   <MuiModal
+                        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                        open={opened}
+                        onClose={handleClose}
+                    >
+                        <div className='h-[95%] w-[70%] flex justify-center items-center'>
+                            <PostModal />
+                        </div>
+                    </MuiModal>
+                :   <div className='bg-neutral-900 h-full w-full flex justify-center items-center'>
+                        <div className='h-[95%] w-[70%]'>
+                            <PostModal />
+                        </div>
+                    </div>
+            }
+        </>
+        
     )
 }
 

@@ -13,7 +13,12 @@ import SpinnerLoader from '../../spinner-loader/spinnerLoader'
 const LINK = 'http://localhost:3500/uploads/'
 
 const PostPreview = ({ postId }) => {
-    const { post, isFetching, isLoading, isSuccess } = useGetPostsQuery(undefined, {
+    const { 
+        post, 
+        isFetching, 
+        isLoading, 
+        isSuccess 
+    } = useGetPostsQuery(undefined, {
         selectFromResult: ({ data, isFetching, isLoading, isSuccess }) => ({
             post: data?.entities[postId],
             isFetching,

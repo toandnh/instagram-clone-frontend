@@ -11,7 +11,8 @@ const Home = () => {
         <div className='bg-black h-screen w-screen grid grid-cols-[250px_1fr]'>
             <Sidebar />
 
-            {outlet || 
+            {
+                outlet || 
                 <div className='bg-neutral-900 grid justify-items-center overflow-y-auto'>
                     <Feed />
                 </div>

@@ -52,7 +52,7 @@ const PostModal = () => {
             isLoading: isUserLoading, 
             isSuccess: isUserSuccess 
         }) => ({
-            user: data?.entities[post.user],
+            user: data?.entities[post?.user],
             isLoading: isUserLoading, 
             isSuccess: isUserSuccess
         }),
