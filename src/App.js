@@ -1,7 +1,8 @@
 import './App.css'
 
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 import { modalOpened } from './components/features/modal/modalSlice'
 
@@ -25,9 +26,20 @@ import Modal from './components/layout/modal'
 function App() {
   const modal = useSelector(modalOpened)
 
+  const location = useLocation()
+
+  const [background, setBackground] = useState(location.state?.background)
+
+  useEffect(() => {
+    if (location.state?.background && !modal) 
+      setBackground(null)
+    else if (location.state?.background)
+      setBackground(location.state.background)
+  }, [location.state?.background, modal])
+
   return (
     <div className='App'>
-      <Routes>
+      <Routes location={background || location}>
         <Route path='login/' element={<Login1 />} />
 
         <Route path='login-alt/' element={<Login2 />} />

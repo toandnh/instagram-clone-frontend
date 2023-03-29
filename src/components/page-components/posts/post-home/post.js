@@ -12,7 +12,7 @@ import { setModalOpened } from '../../../features/modal/modalSlice'
 
 import PostHeader from '../postHeader'
 import PostImages from '../post-explore/postImages'
-import ButtonsPost from '../../buttons/buttonGroupPost'
+import ButtonsGroupPost from '../../buttons/buttonGroupPost'
 import CreateComment from '../../comments/createComment'
 import SpinnerLoader from '../../spinner-loader/spinnerLoader'
 
@@ -89,7 +89,7 @@ const Post = ({ postId }) => {
                 </div>
 
                 <div className='flex flex-col gap-1 border-y border-neutral-900 mx-2 pb-2'>
-                    <ButtonsPost key={postId} postId={postId} liked={liked} />
+                    <ButtonsGroupPost key={postId} postId={postId} liked={liked} />
 
                     <div className='mx-3 font-sans font-semibold text-sm text-white'>{postLikes} likes</div>
 

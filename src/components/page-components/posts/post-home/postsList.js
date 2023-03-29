@@ -44,7 +44,7 @@ const PostsList = () => {
                                         <Post key={postId} postId={postId} />)
             : null
         content = (
-            <div className='h-screen w-[37%] flex flex-col gap-3 my-8'>
+            <div className='max-w-[800px] h-screen aspect-[3/5] flex flex-col gap-3 my-8 mx-16'>
                 {postsList}
             </div>
         )

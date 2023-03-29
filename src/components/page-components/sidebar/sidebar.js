@@ -58,7 +58,12 @@ const Sidebar = () => {
     const [notiOpened, setNotiOpened] = useState(false)
     const [moreOpened, setMoreOpened] = useState(false)
 
+    const toggleMoreClick = () => {setMoreOpened(!moreOpened)}
+
     const toggleDrawerSearch = () => {
+        if (moreOpened)
+            toggleMoreClick()
+
         if (notiOpened) {
             setSearchOpened(true)
             setNotiOpened(false)
@@ -71,6 +76,9 @@ const Sidebar = () => {
     }
 
     const toggleDrawerNoti = () => {
+        if (moreOpened)
+            toggleMoreClick()
+
         if (searchOpened) {
             setNotiOpened(true)
             setSearchOpened(false)
@@ -84,8 +92,6 @@ const Sidebar = () => {
 
     const handleCreateOpen = () => {setCreateOpened(true)}
     const handleCreateClose = () => {setCreateOpened(false)}
-
-    const toggleMoreClick = () => {setMoreOpened(!moreOpened)}
 
     const handleClickOutside = () => {
         if (searchOpened || notiOpened) {
@@ -117,7 +123,7 @@ const Sidebar = () => {
             color: 'white',
             opacity: drawerOpened ? 1 : 0
         },
-        icon: 'h-[25px] w-[25px] ml-2 mr-4'
+        icon: 'h-[25px] aspect-square ml-2 mr-4'
     }
     
     return (
@@ -133,7 +139,7 @@ const Sidebar = () => {
                                 sx={{ height: '3rem', margin: drawerOpened ? '0 0.5rem' : '0' }}
                             >
                                 {drawerOpened ? 
-                                    <img src={fullLogo} alt='logo' className='h-[30px] w-[120px]' /> : 
+                                    <img src={fullLogo} alt='logo' className='h-[30px] aspect-[4/1]' /> : 
                                         <img src={simpleLogo} alt='logo' className={style.icon} />
                                 }
                             </ListItemButton>

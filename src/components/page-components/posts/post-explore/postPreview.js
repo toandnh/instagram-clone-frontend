@@ -7,16 +7,13 @@ import { useGetPostsQuery } from '../../../services/posts/postsApi'
 
 import { setModalOpened } from '../../../features/modal/modalSlice'
 
-import SpinnerLoader from '../../spinner-loader/spinnerLoader'
-
 
 const LINK = 'http://localhost:3500/uploads/'
 
-const PostPreview = ({ postId }) => {
+const PostPreview = ({ postId, postSize }) => {
     const { 
         post, 
-        isFetching, 
-        isLoading, 
+        isFetching,
         isSuccess 
     } = useGetPostsQuery(undefined, {
         selectFromResult: ({ data, isFetching, isLoading, isSuccess }) => ({
@@ -37,24 +34,21 @@ const PostPreview = ({ postId }) => {
 
     let content
 
-    if (isLoading)
-        content = <SpinnerLoader />
-
-    if (isSuccess) {
+    if (isSuccess && !isFetching) {
         const preview = LINK + post?.images[0]
         
         content = (
-            <div className='max-h-[300px] max-w-[300px]'>
+            <>
                 <Button 
                     component={Link}
                     to={`/posts/${postId}`}
                     state={{ background: location }}
                     onClick={handleOpen}
-                    sx={{ height: '300px', width: '300px', padding: '0' }}
+                    sx={{ height: `${postSize}px`, aspectRatio: '1 / 1', padding: '0' }}
                 >
-                    <img src={preview} alt='preview' className='h-[300px] w-[300px]' />
+                    <img src={preview} alt='preview' className={`h-[${postSize}px] aspect-square`} />
                 </Button>
-            </div>
+            </>
         )
     }
 

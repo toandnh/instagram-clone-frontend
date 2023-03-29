@@ -1,5 +1,3 @@
-import { useRef, useState } from 'react'
-
 import { Button } from '@mui/material'
 
 import { useUpdatePostMutation } from '../../services/posts/postsApi'
@@ -11,27 +9,14 @@ import share from '../../images/share.png'
 import bookmark from '../../images/bookmark.png'
 
 
-const ButtonsPost = ({ postId, liked }) => {
+const ButtonsGroupPost = ({ postId, liked }) => {
     const [updatePost] = useUpdatePostMutation()
-
-    const errRef = useRef()
-
-    const [errMessage, setErrMessage] = useState('')
 
     const handleLikeClick = async () => {
         try {
             await updatePost({ id: postId, like: 'true' })
         } catch (err) {
-            if (!err.status) {
-                setErrMessage('Server not responding!')
-            } else if (err.status === 400) {
-                setErrMessage('Missing data!')
-            } else if (err.status === 401) {
-                setErrMessage('Unauthorized!')
-            } else {
-                setErrMessage(err.data?.message)
-            }
-            //errRef.current.focus()
+            console.log(err.data?.message)
         }
     }
 
@@ -97,4 +82,4 @@ const ButtonsPost = ({ postId, liked }) => {
     )
 }
 
-export default ButtonsPost
+export default ButtonsGroupPost

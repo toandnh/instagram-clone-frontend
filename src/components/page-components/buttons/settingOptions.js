@@ -22,9 +22,7 @@ const style = {
 }
 
 const SettingOptions = ({ postId }) => {
-    const [deletePost, { 
-        isSuccess 
-    }] = useDeletePostMutation()
+    const [deletePost] = useDeletePostMutation()
 
     const navigate = useNavigate()
 

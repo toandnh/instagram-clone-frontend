@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Box, Tabs, Tab } from '@mui/material'
+
+import useWindowSize from '../../hooks/useWindowSize'
 
 import PostsGrid from '../posts/post-profile/postsGrid'
 
@@ -15,7 +17,7 @@ const TabPanel = (props) => {
             {...other}
         >
             {value === index && (
-            <Box sx={{ px: 15 }}>
+            <Box sx={{ px: 0 }}>
                 {children}
             </Box>
             )}
@@ -25,11 +27,20 @@ const TabPanel = (props) => {
 
 const UserTab = ({ userId }) => {
     const [value, setValue] = useState(0)
+    const [width, setWidth] = useState(0)
 
-    const handleChange = (event, newValue) => {setValue(newValue)}
+    const ref = useRef(null)
+
+    const size = useWindowSize()
+
+    useEffect(() => {
+        setWidth(ref.current.clientWidth)
+    }, [size])
+
+    const handleChange = (newValue) => {setValue(newValue)}
 
     return (
-        <>
+        <div ref={ref}>
             <Box sx={{ display: 'flex', justifyContent: 'center', padding: '0' }}>
                 <Tabs 
                     value={value} 
@@ -42,7 +53,7 @@ const UserTab = ({ userId }) => {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                <PostsGrid key={userId} userId={userId} />
+                <PostsGrid key={userId} userId={userId} width={width} />
             </TabPanel>
             <TabPanel value={value} index={1}>
 
@@ -50,7 +61,7 @@ const UserTab = ({ userId }) => {
             <TabPanel value={value} index={2}>
                 
             </TabPanel>
-        </>
+        </div>
     )
 }
 

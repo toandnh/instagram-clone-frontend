@@ -7,16 +7,11 @@ import { useUpdatePostMutation } from '../../services/posts/postsApi'
 const CreateComment = ({ postId, userId }) => {
     const [addNewComment] = useAddNewCommentMutation()
     
-    const [updatePost, {
-        isLoading,
-        isSuccess
-    }] = useUpdatePostMutation()
+    const [updatePost] = useUpdatePostMutation()
 
     const textRef = useRef()
-    const errRef = useRef()
 
     const [text, setText] = useState('')
-    const [errMessage, setErrMessage] = useState('')
 
     const handleTextInput = (e) => {setText(e.target.value)}
 
@@ -27,16 +22,7 @@ const CreateComment = ({ postId, userId }) => {
             await updatePost({ id: postId, user: userId, comment: commentId })
             setText('')
         } catch (err) {
-            if (!err.status) {
-                setErrMessage('Server not responding!')
-            } else if (err.status === 400) {
-                setErrMessage('Missing data!')
-            } else if (err.status === 401) {
-                setErrMessage('Unauthorized!')
-            } else {
-                setErrMessage(err.data?.message)
-            }
-            //errRef.current.focus()
+            console.log(err.data?.message)
         }
     }
 

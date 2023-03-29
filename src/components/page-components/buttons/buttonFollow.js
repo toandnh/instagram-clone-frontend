@@ -9,7 +9,7 @@ import useAuth from '../../hooks/useAuth'
 const ButtonFollow = ({ followId }) => {
     const { userId } = useAuth()
 
-    const { user, isFetching } = useGetUsersQuery(undefined, {
+    const { user } = useGetUsersQuery(undefined, {
         selectFromResult: ({ data, isFetching }) => ({
             user: data?.entities[userId],
             isFetching
@@ -19,10 +19,7 @@ const ButtonFollow = ({ followId }) => {
         refetchOnMountOrArgChange: true
     })
 
-    const [updateFollow, {
-        isLoading,
-        isSuccess
-    }] = useUpdateFollowMutation()
+    const [updateFollow] = useUpdateFollowMutation()
 
     const handleOnclick = async (e) => {
         e.preventDefault()

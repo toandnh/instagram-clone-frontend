@@ -45,11 +45,11 @@ const UserPage = () => {
         const num_followers = user.followers?.length ? user.followers.length : 0
 
         content = (
-            <div className='h-full w-full grid grid-rows-[200px_2fr] p-5'>
-                <div className='grid grid-cols-[1fr_2fr_5fr] justify-items-center border-b border-neutral-700'>
+            <div className='h-full w-full grid grid-rows-[2fr_5fr] p-5'>
+                <div className='grid grid-cols-[1fr_2fr_5fr] gap-4 justify-items-center border-b border-neutral-700'>
                     <div />
 
-                    <img src={img_link} alt='avatar' className='h-[150px] w-[150px] rounded-full' />
+                    <img src={img_link} alt='avatar' className='h-[150px] aspect-square rounded-full' />
 
                     <div className='grid grid-rows-3 h-full w-full'>
                         <div className='flex gap-4 items-center font-sans text-white'>
@@ -61,7 +61,7 @@ const UserPage = () => {
                                     className='h-8 w-28 bg-white text-black my-2.5 rounded cursor-pointer hover:bg-slate-100' 
                                     value='Edit profile' 
                                 />
-                                <img src={setting} alt='home' className='h-[25px] w-[25px]' />
+                                <img src={setting} alt='home' className='h-[25px] aspect-square' />
                             </div>
 
                             <div className={!isAuthorizedUserPage ? 'flex flex-row gap-4 items-center' : 'hidden'}>

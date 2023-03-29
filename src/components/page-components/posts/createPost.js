@@ -9,21 +9,14 @@ import { useAddNewPostMutation } from '../../services/posts/postsApi'
 import { useUploadMutation } from '../../services/uploads/uploadsApi'
 
 import useAuth from '../../hooks/useAuth'
-import SpinnerLoader from '../spinner-loader/spinnerLoader'
 
 
 const CreatePost = () => {
     const { userId } = useAuth()
 
-    const [addNewPost, {
-        isLoading: isAddPostLoading,
-        isSuccess: isAddPostSuccess
-    }] = useAddNewPostMutation()
+    const [addNewPost] = useAddNewPostMutation()
 
-    const [upload, {
-        isLoading: isUploadLoading,
-        isSuccess: isUploadSuccess
-    }] = useUploadMutation()
+    const [upload] = useUploadMutation()
 
     const fileInputRef = useRef()
     const captionRef = useRef()
@@ -74,12 +67,7 @@ const CreatePost = () => {
         }
     }, [images])
 
-    let content
-
-    if (isUploadLoading || isAddPostLoading)
-        content = <SpinnerLoader />
-
-    content = (
+    return (
         <form 
             className='h-full w-full bg-neutral-800 grid grid-rows-[1fr_10fr] font-sans text-white rounded-xl'
             onSubmit={handleSubmit}
@@ -165,8 +153,6 @@ const CreatePost = () => {
             </div>
         </form>
     )
-
-    return content
 }
 
 export default CreatePost
