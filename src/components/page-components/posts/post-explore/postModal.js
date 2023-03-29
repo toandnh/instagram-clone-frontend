@@ -97,7 +97,7 @@ const PostModal = () => {
 
                         <div className='mx-3 font-sans font-semibold text-sm text-white'>{postLikes} likes</div>
 
-                        <div className='mx-3 font-sans text-xs text-white'>{postDate}</div>
+                        <div className='mx-3 mb-2 font-sans text-xs text-white'>{postDate}</div>
                     </div>
 
                     <CreateComment key={userId} postId={postId} userId={userId} />

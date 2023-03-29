@@ -8,7 +8,7 @@ const Home = () => {
     const outlet = useOutlet()
 
     return (
-        <div className='bg-black h-screen w-screen grid grid-cols-[250px_1fr]'>
+        <div className='bg-black min-h-[600px] h-screen w-screen grid grid-cols-[250px_1fr]'>
             <Sidebar />
 
             {

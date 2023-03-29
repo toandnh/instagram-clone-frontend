@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { Button } from '@mui/material'
 
@@ -57,6 +57,8 @@ const UserPage = () => {
 
                             <div className={isAuthorizedUserPage ? 'flex flex-row gap-4 items-center' : 'hidden'}>
                                 <Button
+                                    component={Link}
+                                    to='/edit'
                                     sx={{ 
                                         textTransform: 'none', 
                                         height: '30px',

@@ -18,6 +18,7 @@ import Explore from './components/pages/explore/explore'
 import Reels from './components/pages/reels/reels'
 import Messages from './components/pages/messages/messages'
 import Profile from './components/pages/profile/profile'
+import UserEdit from './components/page-components/users/userEdit'
 
 import UserPage from './components/page-components/users/userPage'
 import Modal from './components/layout/modal'
@@ -27,7 +28,6 @@ function App() {
   const modal = useSelector(modalOpened)
 
   const location = useLocation()
-  console.log(location, location.state?.background)
 
   const [background, setBackground] = useState(location.state?.background)
 
@@ -63,6 +63,8 @@ function App() {
                 </Route>
 
                 <Route path='posts/:postId' element={<Modal />} />
+
+                <Route path='edit/' element={<UserEdit />} />
               </Route>
             </Route>
           </Route>
