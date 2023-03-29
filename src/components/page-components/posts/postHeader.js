@@ -21,7 +21,7 @@ const PostHeader = ({ userId, username, userAvatar, postId, isAuthorizedUserPost
                     padding: '0' 
                 }}
             >
-                <img src={userAvatar} alt='avatar' className='h-[30px] w-[30px] rounded-full' />
+                <img src={userAvatar} alt='avatar' className='h-[30px] aspect-square rounded-full' />
             </Button>
 
             <div className='grow flex flex-row'>

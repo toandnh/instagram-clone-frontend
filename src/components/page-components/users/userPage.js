@@ -56,11 +56,22 @@ const UserPage = () => {
                             <p>{username}</p>
 
                             <div className={isAuthorizedUserPage ? 'flex flex-row gap-4 items-center' : 'hidden'}>
-                                <input 
-                                    type='submit' 
-                                    className='h-8 w-28 bg-white text-black my-2.5 rounded cursor-pointer hover:bg-slate-100' 
-                                    value='Edit profile' 
-                                />
+                                <Button
+                                    sx={{ 
+                                        textTransform: 'none', 
+                                        height: '30px',
+                                        fontSize: '14px', 
+                                        fontWeight: '600',
+                                        color: 'black',
+                                        backgroundColor: 'white',
+                                        borderRadius: '5px',
+                                        ':hover': {
+                                            backgroundColor: 'rgb(212 212 212)'
+                                        }
+                                    }}
+                                >
+                                    Edit profile
+                                </Button>
                                 <img src={setting} alt='home' className='h-[25px] aspect-square' />
                             </div>
 

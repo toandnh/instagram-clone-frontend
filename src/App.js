@@ -27,14 +27,16 @@ function App() {
   const modal = useSelector(modalOpened)
 
   const location = useLocation()
+  console.log(location, location.state?.background)
 
   const [background, setBackground] = useState(location.state?.background)
 
   useEffect(() => {
-    if (location.state?.background && !modal) 
+    if ((location.state?.background && !modal) || location.pathname.split('/')[1] !== 'posts') //better to set modal to false?
       setBackground(null)
     else if (location.state?.background)
       setBackground(location.state.background)
+    // eslint-disable-next-line
   }, [location.state?.background, modal])
 
   return (
