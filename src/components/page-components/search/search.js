@@ -9,7 +9,6 @@ import SearchResult from './searchResult'
 import SpinnerLoader from '../spinner-loader/spinnerLoader'
 
 
-
 const Search = () => {
     const { userId: authorizedUserId } = useAuth()
 

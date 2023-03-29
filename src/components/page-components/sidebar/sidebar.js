@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { ClickAwayListener } from '@mui/base'
@@ -6,6 +7,8 @@ import { Tooltip, Popper, Modal, List, ListItem, ListItemButton, ListItemText } 
 import { Slide, createTheme, ThemeProvider } from '@mui/material'
 
 import { default as MiniVariantDrawer } from './miniVariantDrawer'
+
+import { setLocationChanged, locationChanged } from '../../features/location/locationSlice'
 
 import { default as simpleLogo } from './../../images/logo.png'
 import { default as fullLogo } from './../../images/vector.png'
@@ -57,6 +60,20 @@ const Sidebar = () => {
     const [searchOpened, setSearchOpened] = useState(false)
     const [notiOpened, setNotiOpened] = useState(false)
     const [moreOpened, setMoreOpened] = useState(false)
+
+    const locationHasChanged = useSelector(locationChanged)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (locationHasChanged) {
+            dispatch(setLocationChanged(false))
+            setSearchOpened(false)
+            setNotiOpened(false)
+            setDrawerOpened(true)
+        }
+        //eslint-disable-next-line
+    }, [locationHasChanged])
 
     const toggleMoreClick = () => {setMoreOpened(!moreOpened)}
 
