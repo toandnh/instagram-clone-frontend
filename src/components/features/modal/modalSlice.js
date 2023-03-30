@@ -10,6 +10,9 @@ const modalSlice = createSlice({
     reducers: {
         setPostOpened: (state, action) => {
             state.postOpened = action.payload
+        },
+        setCreateOpened: (state, action) => {
+            state.createOpened = action.payload
         }
     }
 })

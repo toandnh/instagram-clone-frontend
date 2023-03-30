@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -60,22 +60,16 @@ const CreatePost = () => {
         }
     }
 
-    let maxStep = 0
+    let maxStep = images.length
 
     const onImagesChange = (e) => {
         if (e.target.files) {
             setUploads(prev => prev = e.target.files)
             Object.entries(e.target.files).forEach((file) => setImages(prev => [...prev, URL.createObjectURL(file[1])]))
-        }
-    }
-
-    useEffect(() => {
-        if (images?.length) {
-            //eslint-disable-next-line
-            maxStep = images.length
+            maxStep = e.target.files.length
             setShowDiv(true)
         }
-    }, [images])
+    }
 
     return (
         <form 
@@ -126,6 +120,9 @@ const CreatePost = () => {
                         sx={{ 
                             bgcolor: 'inherit',
                             '& .MuiMobileStepper-dot': {
+                                backgroundColor: 'gray'
+                            },
+                            '& .MuiMobileStepper-dotActive': {
                                 backgroundColor: 'white'
                             },
                             display: !showDiv ? 'none' : 'flex'
@@ -133,7 +130,7 @@ const CreatePost = () => {
                         nextButton={
                             <Button
                                 onClick={handleNext}
-                                disabled={activeSlide === maxStep}
+                                disabled={activeSlide === maxStep - 1}
                             >
                                 <KeyboardArrowRightIcon sx={{ color: 'white' }} />
                             </Button>

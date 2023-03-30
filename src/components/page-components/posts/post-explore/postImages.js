@@ -50,6 +50,9 @@ const PostImages = ({ postId }) => {
                     sx={{ 
                         bgcolor: 'black',
                         '& .MuiMobileStepper-dot': {
+                            backgroundColor: 'gray'
+                        },
+                        '& .MuiMobileStepper-dotActive': {
                             backgroundColor: 'white'
                         }
                     }}
