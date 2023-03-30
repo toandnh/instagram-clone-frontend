@@ -3,19 +3,19 @@ import { useNavigate } from 'react-router-dom'
 
 import { Modal as MuiModal } from '@mui/material'
 
-import { setModalOpened, modalOpened } from '../features/modal/modalSlice'
+import { setPostOpened, postOpened } from '../features/modal/modalSlice'
 
 import PostModal from '../page-components/posts/post-explore/postModal'
 
 
 const Modal = () => {
-    const opened = useSelector(modalOpened)
+    const opened = useSelector(postOpened)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleClose = () => {
-        dispatch(setModalOpened(false))
+        dispatch(setPostOpened(false))
         navigate(-1)
     }
 

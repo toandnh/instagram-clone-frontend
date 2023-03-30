@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import { MobileStepper, Button } from '@mui/material'
 
@@ -7,6 +9,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
 import { useAddNewPostMutation } from '../../services/posts/postsApi'
 import { useUploadMutation } from '../../services/uploads/uploadsApi'
+
+import { setCreateOpened } from '../../features/modal/modalSlice'
 
 import useAuth from '../../hooks/useAuth'
 
@@ -27,6 +31,9 @@ const CreatePost = () => {
     const [showDiv, setShowDiv] = useState(false)
     const [caption, setCaption] = useState('')
 
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
     const handleNext = () => {setActiveSlide(prevSlide => prevSlide + 1)}
     const handleBack = () => {setActiveSlide(prevSlide => prevSlide - 1)}
 
@@ -45,6 +52,9 @@ const CreatePost = () => {
             setImages(prev => prev = [])
             setShowDiv(false)
             setCaption('')
+
+            navigate(`/profile/${userId}`)
+            dispatch(setCreateOpened(false))
         } catch (err) {
             console.log(err)
         }
@@ -106,7 +116,7 @@ const CreatePost = () => {
 
             <div className={!showDiv ? 'hidden' : 'flex flex-row overflow-hidden'}>
                 <div className='w-2/3 grid grid-rows-[9fr_1fr]'>
-                    <div className='max-w-full h-auto w-auto flex justify-center items-center grow'>
+                    <div className='max-w-full h-auto w-auto flex justify-center items-center overflow-hidden grow'>
                         <img src={showDiv ? images[activeSlide] : ''} alt='slideshow' />
                     </div>
                     <MobileStepper 
@@ -123,7 +133,7 @@ const CreatePost = () => {
                         nextButton={
                             <Button
                                 onClick={handleNext}
-                                disabled={activeSlide === maxStep - 1}
+                                disabled={activeSlide === maxStep}
                             >
                                 <KeyboardArrowRightIcon sx={{ color: 'white' }} />
                             </Button>
@@ -142,7 +152,7 @@ const CreatePost = () => {
                 <div className='w-1/3 border-l border-neutral-700'>
                     <input 
                         type='text' 
-                        className='h-1/2 w-full bg-inherit text-white leading-10 focus:outline-none p-2' 
+                        className='h-1/2 w-full bg-inherit focus:outline-none p-2' 
                         ref={captionRef}
                         value={caption}
                         onChange={handleCaptionInput}

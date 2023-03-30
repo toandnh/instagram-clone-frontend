@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
-import { modalOpened } from './components/features/modal/modalSlice'
+import { postOpened } from './components/features/modal/modalSlice'
 
 import PersistLogin from './components/auth/persistLogin'
 import LogoutListener from './components/auth/logoutListener'
@@ -25,19 +25,19 @@ import Modal from './components/layout/modal'
 
 
 function App() {
-  const modal = useSelector(modalOpened)
+  const postModal = useSelector(postOpened)
 
   const location = useLocation()
 
   const [background, setBackground] = useState(location.state?.background)
 
   useEffect(() => {
-    if ((location.state?.background && !modal) || location.pathname.split('/')[1] !== 'posts') //better to set modal to false?
+    if ((location.state?.background && !postModal) || location.pathname.split('/')[1] !== 'posts') //better to set modal to false?
       setBackground(null)
     else if (location.state?.background)
       setBackground(location.state.background)
     // eslint-disable-next-line
-  }, [location.state?.background, modal])
+  }, [location.state?.background, postModal])
 
   return (
     <div className='App'>
@@ -71,7 +71,7 @@ function App() {
         </Route>
       </Routes>
 
-      {modal && (
+      {postModal && (
         <Routes>
           <Route path='posts/:postId' element={<Modal />} />
         </Routes>

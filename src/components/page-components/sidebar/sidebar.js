@@ -9,6 +9,7 @@ import { Slide, createTheme, ThemeProvider } from '@mui/material'
 import { default as MiniVariantDrawer } from './miniVariantDrawer'
 
 import { setLocationChanged, locationChanged } from '../../features/location/locationSlice'
+import { setCreateOpened, createOpened } from '../../features/modal/modalSlice'
 
 import { default as simpleLogo } from './../../images/logo.png'
 import { default as fullLogo } from './../../images/vector.png'
@@ -56,12 +57,12 @@ const Sidebar = () => {
     const moreRef = useRef()
 
     const [drawerOpened, setDrawerOpened] = useState(true)
-    const [createOpened, setCreateOpened] = useState(false)
     const [searchOpened, setSearchOpened] = useState(false)
     const [notiOpened, setNotiOpened] = useState(false)
     const [moreOpened, setMoreOpened] = useState(false)
 
     const locationHasChanged = useSelector(locationChanged)
+    const createHasOpened = useSelector(createOpened)
 
     const dispatch = useDispatch()
 
@@ -107,8 +108,8 @@ const Sidebar = () => {
         }
     }
 
-    const handleCreateOpen = () => {setCreateOpened(true)}
-    const handleCreateClose = () => {setCreateOpened(false)}
+    const handleCreateOpen = () => {dispatch(setCreateOpened(true))}
+    const handleCreateClose = () => {dispatch(setCreateOpened(false))}
 
     const handleClickOutside = () => {
         if (searchOpened || notiOpened) {
@@ -271,7 +272,7 @@ const Sidebar = () => {
                             </ListItemButton>
                             <Modal
                                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                                open={createOpened}
+                                open={createHasOpened}
                                 onClose={handleCreateClose}
                             >   
                                 <div className='h-4/5 w-2/5'>

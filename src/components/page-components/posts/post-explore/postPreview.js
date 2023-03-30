@@ -5,7 +5,7 @@ import { Button } from '@mui/material'
 
 import { useGetPostsQuery } from '../../../services/posts/postsApi'
 
-import { setModalOpened } from '../../../features/modal/modalSlice'
+import { setPostOpened } from '../../../features/modal/modalSlice'
 
 
 const LINK = 'http://localhost:3500/uploads/'
@@ -30,7 +30,7 @@ const PostPreview = ({ postId, postSize }) => {
     const dispatch = useDispatch()
     const location = useLocation()
 
-    const handleOpen = () => {dispatch(setModalOpened(true))}
+    const handleOpen = () => {dispatch(setPostOpened(true))}
 
     let content
 

@@ -8,7 +8,7 @@ import { useGetUsersQuery } from '../../../services/users/usersApi'
 
 import useAuth from '../../../hooks/useAuth'
 
-import { setModalOpened } from '../../../features/modal/modalSlice'
+import { setPostOpened } from '../../../features/modal/modalSlice'
 
 import PostHeader from '../postHeader'
 import PostImages from '../post-explore/postImages'
@@ -63,7 +63,7 @@ const Post = ({ postId }) => {
     const dispatch = useDispatch()
     const location = useLocation()
 
-    const handleOpen = () => {dispatch(setModalOpened(true))}
+    const handleOpen = () => {dispatch(setPostOpened(true))}
 
     let content
     

@@ -16,7 +16,7 @@ const LINK = 'http://localhost:3500/'
 const UserEdit = () => {
     const { userId } = useAuth()
 
-    const [modalOpened, setModalOpened] = useState(false)
+    const [postOpened, setPostOpened] = useState(false)
 
     const { user, isLoading, isSuccess } = useGetUsersQuery(undefined, {
         selectFromResult: ({ data, isLoading, isSuccess }) => ({
@@ -29,8 +29,8 @@ const UserEdit = () => {
         refetchOnMountOrArgChange: true
     })
 
-    const handleModalOpen = () => {setModalOpened(true)}
-    const handleModalClose = () => {setModalOpened(false)}
+    const handleModalOpen = () => {setPostOpened(true)}
+    const handleModalClose = () => {setPostOpened(false)}
 
     let content
 
@@ -65,7 +65,7 @@ const UserEdit = () => {
                             </Button>
                             <Modal
                                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                                open={modalOpened}
+                                open={postOpened}
                                 onClose={handleModalClose}
                             >   
                                 <div className='h-1/3 w-1/3 flex flex-col bg-neutral-800 rounded-xl'>
