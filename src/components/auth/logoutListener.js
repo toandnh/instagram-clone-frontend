@@ -5,28 +5,23 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import { useLogoutMutation } from '../services/auth/authApi'
 import { expiredStatus } from '../features/auth/authSlice'
 
-
 const LogoutListener = () => {
-    console.log('Listening for logout status...')
-    const expired = useSelector(expiredStatus)
+	console.log('Listening for logout status...')
+	const expired = useSelector(expiredStatus)
 
-    const [logout, { 
-        isSuccess
-    }] = useLogoutMutation()
+	const [logout, { isSuccess }] = useLogoutMutation()
 
-    const navigate = useNavigate()
+	const navigate = useNavigate()
 
-    useEffect(() => {
-        if (expired)
-            logout()
-    }, [expired, logout])
+	useEffect(() => {
+		if (expired) logout()
+	}, [expired, logout])
 
-    useEffect(() => {
-        if (isSuccess)
-            navigate('/login-alt')
-    }, [isSuccess, navigate])
+	useEffect(() => {
+		if (isSuccess) navigate('/login-alt')
+	}, [isSuccess, navigate])
 
-    return <Outlet />
+	return <Outlet />
 }
 
 export default LogoutListener

@@ -9,49 +9,42 @@ import usePersist from '../hooks/usePersist'
 
 import SpinnerLoader from '../page-components/spinner-loader/spinnerLoader'
 
-
 const PersistLogin = () => {
-    const [persist] = usePersist()
+	const [persist] = usePersist()
 
-    const token = useSelector(currentToken)
-    const effectRan = useRef(false)
+	const token = useSelector(currentToken)
+	const effectRan = useRef(false)
 
-    const [trueSuccess, setTrueSuccess] = useState(false)
-    const [refresh, {
-        isUninitialized,
-        isLoading,
-        isSuccess
-    }] = useRefreshMutation()
+	const [trueSuccess, setTrueSuccess] = useState(false)
+	const [refresh, { isUninitialized, isLoading, isSuccess }] = useRefreshMutation()
 
-    useEffect(() => {
-        if (effectRan.current === true || process.env.NODE_ENV !== 'development') {//react 18 strict mode.
-            const verifyRefreshToken = async () => {
-                console.log('Verifying refresh token...')
-                try {
-                    await refresh()
-                    setTrueSuccess(true)
-                } catch (err) {
-                    console.error(err)
-                }
-            }
+	useEffect(() => {
+		if (effectRan.current === true || process.env.NODE_ENV !== 'development') {
+			//react 18 strict mode.
+			const verifyRefreshToken = async () => {
+				console.log('Verifying refresh token...')
+				try {
+					await refresh()
+					setTrueSuccess(true)
+				} catch (err) {
+					console.error(err)
+				}
+			}
 
-            if (!token && persist) 
-                verifyRefreshToken()
-        }
+			if (!token && persist) verifyRefreshToken()
+		}
 
-        return () => effectRan.current = true
-        //eslint-disable-next-line
-    }, [])
+		return () => (effectRan.current = true)
+		//eslint-disable-next-line
+	}, [])
 
-    let content
+	let content
 
-    if (isLoading) 
-        content = <SpinnerLoader size='screen' />
-    
-    if ((isSuccess && trueSuccess) || (token && isUninitialized))  //persist, token.
-        content = <Outlet />
+	if (isLoading) content = <SpinnerLoader size='screen' />
 
-    return content
+	if ((isSuccess && trueSuccess) || (token && isUninitialized)) content = <Outlet />
+
+	return content
 }
 
 export default PersistLogin

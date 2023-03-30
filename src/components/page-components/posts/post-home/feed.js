@@ -6,33 +6,31 @@ import Sugestions from './suggestions'
 import PostsList from './postsList'
 import SpinnerLoader from '../../spinner-loader/spinnerLoader'
 
-
 const Feed = () => {
-    const { userId } = useAuth()
+	const { userId } = useAuth()
 
-    const { user, isLoading, isSuccess } = useGetUsersQuery(undefined, {
-        selectFromResult: ({ data, isLoading, isSuccess }) => ({
-            user: data?.entities[userId],
-            isLoading, 
-            isSuccess
-        }),
-        pollingInterval: 3 * 60 * 1000,
-        refetchOnFocus: true,
-        refetchOnMountOrArgChange: true
-    })
+	const { user, isLoading, isSuccess } = useGetUsersQuery(undefined, {
+		selectFromResult: ({ data, isLoading, isSuccess }) => ({
+			user: data?.entities[userId],
+			isLoading,
+			isSuccess
+		}),
+		pollingInterval: 3 * 60 * 1000,
+		refetchOnFocus: true,
+		refetchOnMountOrArgChange: true
+	})
 
-    let content
-    
-    if (isLoading)
-        content = <SpinnerLoader />
+	let content
 
-    if (isSuccess) {
-        const isFollowing = user?.following?.length
+	if (isLoading) content = <SpinnerLoader />
 
-        content = isFollowing ? <PostsList /> : <Sugestions />
-    }
+	if (isSuccess) {
+		const isFollowing = user?.following?.length
 
-    return content
+		content = isFollowing ? <PostsList /> : <Sugestions />
+	}
+
+	return content
 }
 
 export default Feed

@@ -1,10 +1,5 @@
-
-
-
 const UserEditForm = ({ user }) => {
-    return (
-        <></>
-    )
+	return <></>
 }
 
 export default UserEditForm

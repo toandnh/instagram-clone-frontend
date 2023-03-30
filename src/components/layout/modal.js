@@ -7,39 +7,38 @@ import { setPostOpened, postOpened } from '../features/modal/modalSlice'
 
 import PostModal from '../page-components/posts/post-explore/postModal'
 
-
 const Modal = () => {
-    const opened = useSelector(postOpened)
+	const opened = useSelector(postOpened)
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
 
-    const handleClose = () => {
-        dispatch(setPostOpened(false))
-        navigate(-1)
-    }
+	const handleClose = () => {
+		dispatch(setPostOpened(false))
+		navigate(-1)
+	}
 
-    return (
-        <>
-            {opened 
-                ?   <MuiModal
-                        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                        open={opened}
-                        onClose={handleClose}
-                    >
-                        <div className='h-[95%] aspect-[9/6] flex justify-center items-center'>
-                            <PostModal />
-                        </div>
-                    </MuiModal>
-                :   <div className='bg-neutral-900 min-w-[1000px] h-full w-full flex justify-center items-center overflow-hidden'>
-                        <div className='min-h-[600px] h-[90%] aspect-[9/6]'>
-                            <PostModal />
-                        </div>
-                    </div>
-            }
-        </>
-        
-    )
+	return (
+		<>
+			{opened ? (
+				<MuiModal
+					sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+					open={opened}
+					onClose={handleClose}
+				>
+					<div className='h-[95%] aspect-[9/6] flex justify-center items-center'>
+						<PostModal />
+					</div>
+				</MuiModal>
+			) : (
+				<div className='bg-neutral-900 min-w-[1000px] h-full w-full flex justify-center items-center overflow-hidden'>
+					<div className='min-h-[600px] h-[90%] aspect-[9/6]'>
+						<PostModal />
+					</div>
+				</div>
+			)}
+		</>
+	)
 }
 
 export default Modal
