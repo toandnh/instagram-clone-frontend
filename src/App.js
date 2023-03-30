@@ -25,59 +25,59 @@ import Modal from './components/layout/modal'
 
 
 function App() {
-  const postModal = useSelector(postOpened)
+    const postModal = useSelector(postOpened)
+    
+    const location = useLocation()
+    
+    const [background, setBackground] = useState(location.state?.background)
 
-  const location = useLocation()
+    useEffect(() => {
+        if ((location.state?.background && !postModal) || location.pathname.split('/')[1] !== 'posts') //better to set modal to false?
+            setBackground(null)
+        else if (location.state?.background)
+            setBackground(location.state.background)
+        // eslint-disable-next-line
+    }, [location.state?.background, postModal])
 
-  const [background, setBackground] = useState(location.state?.background)
+    return (
+        <div className='App'>
+            <Routes location={background || location}>
+                <Route path='login/' element={<Login1 />} />
 
-  useEffect(() => {
-    if ((location.state?.background && !postModal) || location.pathname.split('/')[1] !== 'posts') //better to set modal to false?
-      setBackground(null)
-    else if (location.state?.background)
-      setBackground(location.state.background)
-    // eslint-disable-next-line
-  }, [location.state?.background, postModal])
+                <Route path='login-alt/' element={<Login2 />} />
 
-  return (
-    <div className='App'>
-      <Routes location={background || location}>
-        <Route path='login/' element={<Login1 />} />
+                <Route path='signup/' element={<Signup />} />
 
-        <Route path='login-alt/' element={<Login2 />} />
+                <Route element={<PersistLogin />}>
+                    <Route element={<LogoutListener />}>
+                        <Route element={<Prefectch />}>
+                            <Route path='/' element={<Home />}>
+                                <Route path='explore/' element={<Explore />} />
 
-        <Route path='signup/' element={<Signup />} />
+                                <Route path='reels/' element={<Reels />} />
 
-        <Route element={<PersistLogin />}>
-          <Route element={<LogoutListener />}>
-            <Route element={<Prefectch />}>
-              <Route path='/' element={<Home />}>
-                <Route path='explore/' element={<Explore />} />
+                                <Route path='messages/' element={<Messages />} />
 
-                <Route path='reels/' element={<Reels />} />
+                                <Route path='profile/' element={<Profile />}>
+                                    <Route path=':userId/' element={<UserPage />} />
+                                </Route>
 
-                <Route path='messages/' element={<Messages />} />
+                                <Route path='posts/:postId' element={<Modal />} />
 
-                <Route path='profile/' element={<Profile />}>
-                  <Route path=':userId/' element={<UserPage />} />
+                                <Route path='edit/' element={<UserEdit />} />
+                            </Route>
+                        </Route>
+                    </Route>
                 </Route>
+            </Routes>
 
-                <Route path='posts/:postId' element={<Modal />} />
-
-                <Route path='edit/' element={<UserEdit />} />
-              </Route>
-            </Route>
-          </Route>
-        </Route>
-      </Routes>
-
-      {postModal && (
-        <Routes>
-          <Route path='posts/:postId' element={<Modal />} />
-        </Routes>
-      )}
-    </div>
-  )
+            {postModal && (
+                <Routes>
+                    <Route path='posts/:postId' element={<Modal />} />
+                </Routes>
+            )}
+        </div>
+    )
 }
 
 export default App
