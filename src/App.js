@@ -4,24 +4,25 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
-import { postOpened } from './components/features/modal/modalSlice'
+import { postOpened } from './features/modal/modalSlice'
 
-import PersistLogin from './components/auth/persistLogin'
-import LogoutListener from './components/auth/logoutListener'
-import Prefectch from './components/auth/prefetch'
+import PersistLogin from './auth/persistLogin'
+import LogoutListener from './auth/logoutListener'
+import Prefectch from './auth/prefetch'
 
-import Login1 from './components/pages/login/login1'
-import Login2 from './components/pages/login/login2'
-import Signup from './components/pages/signup/signup'
-import Home from './components/pages/home/home'
-import Explore from './components/pages/explore/explore'
-import Reels from './components/pages/reels/reels'
-import Messages from './components/pages/messages/messages'
-import Profile from './components/pages/profile/profile'
-import UserEdit from './components/page-components/users/userEdit'
+import Login1 from './pages/login/login1'
+import Login2 from './pages/login/login2'
+import Signup from './pages/signup/signup'
+import Home from './pages/home/home'
+import Explore from './pages/explore/explore'
+import Reels from './pages/reels/reels'
+import Messages from './pages/messages/messages'
+import Profile from './pages/profile/profile'
 
-import UserPage from './components/page-components/users/userPage'
-import Modal from './components/page-components/modal'
+import UserEdit from './components/users/userEdit'
+import UserPage from './components/users/userPage'
+
+import Modal from './components/modal'
 
 function App() {
 	const postModal = useSelector(postOpened)

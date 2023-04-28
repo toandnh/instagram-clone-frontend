@@ -22,8 +22,8 @@ import {
 } from '../../features/location/locationSlice'
 import { setCreateOpened, createOpened } from '../../features/modal/modalSlice'
 
-import { default as simpleLogo } from './../../images/logo.png'
-import { default as fullLogo } from './../../images/vector.png'
+import { default as simpleLogo } from '../../images/logo.png'
+import { default as fullLogo } from '../../images/vector.png'
 
 import useAuth from '../../hooks/useAuth'
 

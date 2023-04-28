@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import useWindowSize from '../../hooks/useWindowSize'
 
-import PostsGrid from '../../page-components/posts/post-explore/postsGrid'
+import PostsGrid from '../../components/posts/post-explore/postsGrid'
 
 const Explore = () => {
 	const [width, setWidth] = useState(0)

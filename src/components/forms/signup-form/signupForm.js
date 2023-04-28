@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 import { useAddNewUserMutation } from '../../../services/users/usersApi'
 
-import Logo from '../logo/logo'
 import Divider from '../divider/divider'
+
+import Logo from '../logo'
 
 const USER_REGEX = /^[A-z]{3,20}$/
 const PWD_REGEX = /^[A-z0-9!@#$%]{3,12}$/

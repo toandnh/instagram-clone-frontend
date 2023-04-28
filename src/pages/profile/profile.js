@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-import Footer from '../../page-components/footer/footer'
+import Footer from '../../components/footer/footer'
 
 const Profile = () => {
 	return (

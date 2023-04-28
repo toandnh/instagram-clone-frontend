@@ -7,7 +7,7 @@ import { currentToken } from '../features/auth/authSlice'
 
 import usePersist from '../hooks/usePersist'
 
-import SpinnerLoader from '../page-components/spinner-loader/spinnerLoader'
+import SpinnerLoader from '../components/spinner-loader/spinnerLoader'
 
 const PersistLogin = () => {
 	const [persist] = usePersist()

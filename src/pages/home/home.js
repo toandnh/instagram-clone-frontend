@@ -1,7 +1,7 @@
 import { useOutlet } from 'react-router-dom'
 
-import Sidebar from '../../page-components/sidebar/sidebar'
-import Feed from '../../page-components/posts/post-home/feed'
+import Sidebar from '../../components/sidebar/sidebar'
+import Feed from '../../components/posts/post-home/feed'
 
 const Home = () => {
 	const outlet = useOutlet()

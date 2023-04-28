@@ -7,8 +7,9 @@ import { CircularProgress, Backdrop } from '@mui/material'
 import { setCredentials } from '../../../features/auth/authSlice'
 import { useLoginMutation } from '../../../services/auth/authApi'
 
-import Logo from '../logo/logo'
 import Divider from '../divider/divider'
+
+import Logo from '../logo'
 
 const style = {
 	inputText: 'h-9 w-72 p-3 border border-solid border-stone-300 rounded',

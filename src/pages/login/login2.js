@@ -1,7 +1,7 @@
-import LoginForm from '../../page-components/forms/login-form/loginForm'
-import AltLogin1 from '../../page-components/forms/alt-login/altLogin1'
-import GetApp from '../../page-components/forms/get-app/getApp'
-import Footer from '../../page-components/footer/footer'
+import LoginForm from '../../components/forms/login-form/loginForm'
+import AltLogin1 from '../../components/forms/alt-login/altLogin1'
+import GetApp from '../../components/forms/get-app/getApp'
+import Footer from '../../components/footer/footer'
 
 const Login2 = () => {
 	return (

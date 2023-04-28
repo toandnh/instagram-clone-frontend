@@ -1,7 +1,7 @@
-import SignupForm from '../../page-components/forms/signup-form/signupForm'
-import AltLogin2 from '../../page-components/forms/alt-login/altLogin2'
-import GetApp from '../../page-components/forms/get-app/getApp'
-import Footer from '../../page-components/footer/footer'
+import SignupForm from '../../components/forms/signup-form/signupForm'
+import AltLogin2 from '../../components/forms/alt-login/altLogin2'
+import GetApp from '../../components/forms/get-app/getApp'
+import Footer from '../../components/footer/footer'
 
 const Signup = () => {
 	return (
