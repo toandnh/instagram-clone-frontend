@@ -24,7 +24,10 @@ export const postsApi = apiSlice.injectEndpoints({
 			},
 			providesTags: (result, error, arg) => {
 				if (result?.ids) {
-					return [{ type: 'Post', id: 'LIST' }, ...result.ids.map((id) => ({ type: 'Post', id }))]
+					return [
+						{ type: 'Post', id: 'LIST' },
+						...result.ids.map((id) => ({ type: 'Post', id }))
+					]
 				} else {
 					return [{ type: 'Post', id: 'LIST' }]
 				}
@@ -48,7 +51,10 @@ export const postsApi = apiSlice.injectEndpoints({
 			},
 			providesTags: (result, error, arg) => {
 				if (result?.ids) {
-					return [{ type: 'Post', id: 'LIST' }, ...result.ids.map((id) => ({ type: 'Post', id }))]
+					return [
+						{ type: 'Post', id: 'LIST' },
+						...result.ids.map((id) => ({ type: 'Post', id }))
+					]
 				} else {
 					return [{ type: 'Post', id: 'LIST' }]
 				}

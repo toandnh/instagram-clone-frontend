@@ -29,7 +29,9 @@ const UsersList = () => {
 			? ids.map(
 					(userId) =>
 						currentUser.id !== userId &&
-						!currentUser.following.includes(userId) && <User key={userId} userId={userId} />
+						!currentUser.following.includes(userId) && (
+							<User key={userId} userId={userId} />
+						)
 			  )
 			: null
 

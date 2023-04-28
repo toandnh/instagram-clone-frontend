@@ -38,7 +38,11 @@ const ButtonSettingPost = ({ postId, isAuthorizedUserPost }) => {
 				onClose={handleClose}
 			>
 				<div className='h-[50%] w-[25%] flex justify-center items-center'>
-					{isAuthorizedUserPost ? <SettingOptions postId={postId} /> : <SettingOptionsAlt />}
+					{isAuthorizedUserPost ? (
+						<SettingOptions postId={postId} />
+					) : (
+						<SettingOptionsAlt />
+					)}
 				</div>
 			</Modal>
 		</>

@@ -44,7 +44,10 @@ const UserAvatarChange = () => {
 				<ListItemButton disableGutters sx={style.button}>
 					<ListItemText
 						primary='Upload Photo'
-						primaryTypographyProps={{ color: 'rgb(2 132 199)', fontWeight: 700 }}
+						primaryTypographyProps={{
+							color: 'rgb(2 132 199)',
+							fontWeight: 700
+						}}
 						sx={style.text}
 					/>
 				</ListItemButton>
@@ -54,7 +57,10 @@ const UserAvatarChange = () => {
 				<ListItemButton disableGutters sx={style.button}>
 					<ListItemText
 						primary='Remove Current Photo'
-						primaryTypographyProps={{ color: 'rgb(225 29 72)', fontWeight: 700 }}
+						primaryTypographyProps={{
+							color: 'rgb(225 29 72)',
+							fontWeight: 700
+						}}
 						sx={style.text}
 					/>
 				</ListItemButton>

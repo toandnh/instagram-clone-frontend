@@ -32,9 +32,13 @@ function App() {
 
 	useEffect(() => {
 		//better to set modal to false?
-		if ((location.state?.background && !postModal) || location.pathname.split('/')[1] !== 'posts')
+		if (
+			(location.state?.background && !postModal) ||
+			location.pathname.split('/')[1] !== 'posts'
+		)
 			setBackground(null)
-		else if (location.state?.background) setBackground(location.state.background)
+		else if (location.state?.background)
+			setBackground(location.state.background)
 		// eslint-disable-next-line
 	}, [location.state?.background, postModal])
 

@@ -25,7 +25,9 @@ const closedMixin = (theme) => ({
 	overflowX: 'hidden'
 })
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
+const Drawer = styled(MuiDrawer, {
+	shouldForwardProp: (prop) => prop !== 'open'
+})(({ theme, open }) => ({
 	width: drawerWidth,
 	flexShrink: 0,
 	whiteSpace: 'nowrap',

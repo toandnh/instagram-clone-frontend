@@ -26,7 +26,11 @@ const Post = ({ postId }) => {
 		isLoading: isPostLoading,
 		isSuccess: isPostSuccess
 	} = useGetPostsQuery(undefined, {
-		selectFromResult: ({ data, isLoading: isPostLoading, isSuccess: isPostSuccess }) => ({
+		selectFromResult: ({
+			data,
+			isLoading: isPostLoading,
+			isSuccess: isPostSuccess
+		}) => ({
 			post: data?.entities[postId],
 			isLoading: isPostLoading,
 			isSuccess: isPostSuccess
@@ -41,7 +45,11 @@ const Post = ({ postId }) => {
 		isLoading: isUserLoading,
 		isSuccess: isUserSuccess
 	} = useGetUsersQuery(undefined, {
-		selectFromResult: ({ data, isLoading: isUserLoading, isSuccess: isUserSuccess }) => ({
+		selectFromResult: ({
+			data,
+			isLoading: isUserLoading,
+			isSuccess: isUserSuccess
+		}) => ({
 			user: data?.entities[post.user],
 			isLoading: isUserLoading,
 			isSuccess: isUserSuccess
@@ -74,7 +82,11 @@ const Post = ({ postId }) => {
 
 		content = (
 			<div className='h-[93%] bg-black grid grid-rows-[1fr_10fr_2fr_1fr] rounded-lg'>
-				<PostHeader userId={userId} username={username} userAvatar={userAvatar} />
+				<PostHeader
+					userId={userId}
+					username={username}
+					userAvatar={userAvatar}
+				/>
 
 				<div className='max-h-full h-auto w-auto flex flex-col justify-center items-center grow overflow-hidden'>
 					<PostImages postId={postId} />
@@ -83,7 +95,9 @@ const Post = ({ postId }) => {
 				<div className='flex flex-col gap-1 border-y border-neutral-900 mx-2 pb-2'>
 					<ButtonsGroupPost key={postId} postId={postId} liked={liked} />
 
-					<div className='mx-3 font-sans font-semibold text-sm text-white'>{postLikes} likes</div>
+					<div className='mx-3 font-sans font-semibold text-sm text-white'>
+						{postLikes} likes
+					</div>
 
 					<div className='mx-3 font-sans font-semibold text-sm text-white'>
 						{username}

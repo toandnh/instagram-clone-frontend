@@ -40,10 +40,16 @@ const PostsList = () => {
 			? ids.map(
 					(postId) =>
 						!user?.posts.includes(postId) &&
-						user?.following.includes(posts.entities[postId].user) && <Post key={postId} postId={postId} />
+						user?.following.includes(posts.entities[postId].user) && (
+							<Post key={postId} postId={postId} />
+						)
 			  )
 			: null
-		content = <div className='max-w-[800px] h-screen aspect-[3/5] flex flex-col gap-3 my-8 mx-16'>{postsList}</div>
+		content = (
+			<div className='max-w-[800px] h-screen aspect-[3/5] flex flex-col gap-3 my-8 mx-16'>
+				{postsList}
+			</div>
+		)
 	}
 
 	return content

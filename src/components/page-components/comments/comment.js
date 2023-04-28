@@ -10,7 +10,11 @@ const Comment = ({ postId, commentId }) => {
 		isLoading: isCommentLoading,
 		isSuccess: isCommentSuccess
 	} = useGetCommentsByPostIdQuery(postId, {
-		selectFromResult: ({ data, isLoading: isCommentLoading, isSuccess: isCommentSuccess }) => ({
+		selectFromResult: ({
+			data,
+			isLoading: isCommentLoading,
+			isSuccess: isCommentSuccess
+		}) => ({
 			comment: data?.entities[commentId],
 			isLoading: isCommentLoading,
 			isSuccess: isCommentSuccess
@@ -22,7 +26,11 @@ const Comment = ({ postId, commentId }) => {
 		isLoading: isUserLoading,
 		isSuccess: isUserSuccess
 	} = useGetUsersQuery(undefined, {
-		selectFromResult: ({ data, isLoading: isUserLoading, isSuccess: isUserSuccess }) => ({
+		selectFromResult: ({
+			data,
+			isLoading: isUserLoading,
+			isSuccess: isUserSuccess
+		}) => ({
 			user: data?.entities[comment.user],
 			isLoading: isUserLoading,
 			isSuccess: isUserSuccess
@@ -39,7 +47,14 @@ const Comment = ({ postId, commentId }) => {
 		const username = user.username
 		const text = comment.text
 
-		content = <CommentLine userId={userId} userAvatar={userAvatar} username={username} text={text} />
+		content = (
+			<CommentLine
+				userId={userId}
+				userAvatar={userAvatar}
+				username={username}
+				text={text}
+			/>
+		)
 	}
 
 	return content

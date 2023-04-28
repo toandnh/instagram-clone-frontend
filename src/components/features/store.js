@@ -13,7 +13,8 @@ const store = configureStore({
 		modal: modalReducer,
 		location: locationReducer
 	},
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware().concat(apiSlice.middleware),
 	devTools: true
 })
 

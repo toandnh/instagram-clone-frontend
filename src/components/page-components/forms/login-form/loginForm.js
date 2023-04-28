@@ -12,7 +12,8 @@ import Divider from '../divider/divider'
 
 const style = {
 	inputText: 'h-9 w-72 p-3 border border-solid border-stone-300 rounded',
-	submit: 'h-8 w-72 bg-sky-500 font-sans font-semibold text-white my-2.5 border-none rounded cursor-pointer hover:bg-sky-600'
+	submit:
+		'h-8 w-72 bg-sky-500 font-sans font-semibold text-white my-2.5 border-none rounded cursor-pointer hover:bg-sky-600'
 }
 
 const LoginForm = () => {
@@ -75,7 +76,10 @@ const LoginForm = () => {
 		<div className='grid grid-rows-3 border border-solid border-stone-300'>
 			<Logo />
 
-			<form className='grid justify-items-center items-center' onSubmit={handleSubmit}>
+			<form
+				className='grid justify-items-center items-center'
+				onSubmit={handleSubmit}
+			>
 				<p ref={errRef} aria-live='assertive'>
 					{errMessage}
 				</p>
@@ -116,7 +120,10 @@ const LoginForm = () => {
 					</a>
 				</div>
 			</div>
-			<Backdrop sx={{ color: 'white', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={backdropOpened}>
+			<Backdrop
+				sx={{ color: 'white', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+				open={backdropOpened}
+			>
 				<CircularProgress thickness={5} color='inherit' />
 			</Backdrop>
 		</div>

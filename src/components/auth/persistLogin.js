@@ -16,7 +16,8 @@ const PersistLogin = () => {
 	const effectRan = useRef(false)
 
 	const [trueSuccess, setTrueSuccess] = useState(false)
-	const [refresh, { isUninitialized, isLoading, isSuccess }] = useRefreshMutation()
+	const [refresh, { isUninitialized, isLoading, isSuccess }] =
+		useRefreshMutation()
 
 	useEffect(() => {
 		if (effectRan.current === true || process.env.NODE_ENV !== 'development') {
@@ -42,7 +43,8 @@ const PersistLogin = () => {
 
 	if (isLoading) content = <SpinnerLoader size='screen' />
 
-	if ((isSuccess && trueSuccess) || (token && isUninitialized)) content = <Outlet />
+	if ((isSuccess && trueSuccess) || (token && isUninitialized))
+		content = <Outlet />
 
 	return content
 }

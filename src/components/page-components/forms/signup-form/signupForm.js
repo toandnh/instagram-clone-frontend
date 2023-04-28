@@ -75,7 +75,10 @@ const SignupForm = () => {
 				<Divider />
 			</div>
 
-			<form className='grid justify-items-center items-center' onSubmit={handleSubmit}>
+			<form
+				className='grid justify-items-center items-center'
+				onSubmit={handleSubmit}
+			>
 				<div className='h-[160px] grid grid-rows-4'>
 					<input
 						type='text'
@@ -109,7 +112,8 @@ const SignupForm = () => {
 					/>
 				</div>
 				<div className='w-72 px-3 font-sans text-xs text-center'>
-					People who use our service may have uploaded your contact information to Instagram.
+					People who use our service may have uploaded your contact information
+					to Instagram.
 					<a href='https://www.w3schools.com/' target='_blank' rel='noreferrer'>
 						{' '}
 						Learn More

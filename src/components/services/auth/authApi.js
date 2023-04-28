@@ -1,5 +1,9 @@
 import { apiSlice } from '../../features/api/apiSlice'
-import { setCredentials, setTokenNull, setExpiredStatus } from '../../features/auth/authSlice'
+import {
+	setCredentials,
+	setTokenNull,
+	setExpiredStatus
+} from '../../features/auth/authSlice'
 
 export const authApi = apiSlice.injectEndpoints({
 	endpoints: (build) => ({
@@ -46,4 +50,5 @@ export const authApi = apiSlice.injectEndpoints({
 	})
 })
 
-export const { useLoginMutation, useLogoutMutation, useRefreshMutation } = authApi
+export const { useLoginMutation, useLogoutMutation, useRefreshMutation } =
+	authApi

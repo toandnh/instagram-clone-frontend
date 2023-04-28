@@ -20,7 +20,8 @@ const authSlice = createSlice({
 	}
 })
 
-export const { setCredentials, setTokenNull, setExpiredStatus } = authSlice.actions
+export const { setCredentials, setTokenNull, setExpiredStatus } =
+	authSlice.actions
 
 export const currentToken = (state) => state.auth.token
 export const expiredStatus = (state) => state.auth.expired

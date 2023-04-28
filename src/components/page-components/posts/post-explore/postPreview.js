@@ -43,7 +43,11 @@ const PostPreview = ({ postId, postSize }) => {
 					onClick={handleOpen}
 					sx={{ height: `${postSize}px`, aspectRatio: '1 / 1', padding: '0' }}
 				>
-					<img src={preview} alt='preview' className={`h-[${postSize}px] aspect-square`} />
+					<img
+						src={preview}
+						alt='preview'
+						className={`h-[${postSize}px] aspect-square`}
+					/>
 				</Button>
 			</>
 		)

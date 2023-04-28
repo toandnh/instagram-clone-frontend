@@ -20,7 +20,9 @@ const Search = () => {
 		isSuccess,
 		isLoading,
 		isFetching
-	} = useSearchUserQuery(debounceSearchQuery, { skip: debounceSearchQuery === '' })
+	} = useSearchUserQuery(debounceSearchQuery, {
+		skip: debounceSearchQuery === ''
+	})
 
 	const handleSearchChange = (e) => {
 		setSearchQuery(e.target.value)
@@ -33,7 +35,12 @@ const Search = () => {
 	if (isSuccess) {
 		const { ids, entities } = searchResults
 		const usersList = ids?.length
-			? ids.map((userId) => userId !== authorizedUserId && <SearchResult key={userId} user={entities[userId]} />)
+			? ids.map(
+					(userId) =>
+						userId !== authorizedUserId && (
+							<SearchResult key={userId} user={entities[userId]} />
+						)
+			  )
 			: null
 
 		results = usersList

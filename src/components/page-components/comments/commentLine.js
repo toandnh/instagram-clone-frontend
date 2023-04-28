@@ -17,7 +17,11 @@ const CommentLine = ({ userId, userAvatar, username, text }) => {
 					padding: '0'
 				}}
 			>
-				<img src={userAvatar} alt='avatar' className='h-[30px] w-[30px] rounded-full' />
+				<img
+					src={userAvatar}
+					alt='avatar'
+					className='h-[30px] w-[30px] rounded-full'
+				/>
 			</Button>
 			<div className='flex flex-row items-center font-sans text-white'>
 				<Button

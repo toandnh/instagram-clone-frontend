@@ -51,7 +51,9 @@ const CreatePost = () => {
 		try {
 			let formData = new FormData()
 			formData.append('userId', userId)
-			Object.entries(uploads).forEach((image) => formData.append('images', image[1]))
+			Object.entries(uploads).forEach((image) =>
+				formData.append('images', image[1])
+			)
 			const { filenames } = await upload(formData).unwrap()
 
 			await addNewPost({ user: userId, images: filenames, caption })
@@ -98,10 +100,21 @@ const CreatePost = () => {
 				/>
 			</div>
 
-			<div className={showDiv ? 'hidden' : 'flex flex-col gap-4 justify-center items-center'}>
+			<div
+				className={
+					showDiv ? 'hidden' : 'flex flex-col gap-4 justify-center items-center'
+				}
+			>
 				<img alt='add' />
 				<h1 className='text-xl'>Drag photos and videos here</h1>
-				<input type='file' name='images' multiple hidden ref={fileInputRef} onChange={onImagesChange} />
+				<input
+					type='file'
+					name='images'
+					multiple
+					hidden
+					ref={fileInputRef}
+					onChange={onImagesChange}
+				/>
 				<input
 					type='button'
 					className='h-8 w-52 bg-sky-500 font-sans font-semibold text-white my-2.5 rounded cursor-pointer hover:bg-sky-600'
@@ -130,7 +143,10 @@ const CreatePost = () => {
 							display: !showDiv ? 'none' : 'flex'
 						}}
 						nextButton={
-							<Button onClick={handleNext} disabled={activeSlide === maxStep - 1}>
+							<Button
+								onClick={handleNext}
+								disabled={activeSlide === maxStep - 1}
+							>
 								<KeyboardArrowRightIcon sx={{ color: 'white' }} />
 							</Button>
 						}

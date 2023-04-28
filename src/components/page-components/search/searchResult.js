@@ -35,7 +35,11 @@ const SearchResult = ({ user }) => {
 		>
 			<div className='flex flex-row gap-4'>
 				<div>
-					<img src={img_link} alt='avatar' className='h-[45px] aspect-square rounded-full' />
+					<img
+						src={img_link}
+						alt='avatar'
+						className='h-[45px] aspect-square rounded-full'
+					/>
 				</div>
 				<div className='flex flex-col font-sans text-base'>
 					<div className='text-white font-semibold'>{username}</div>

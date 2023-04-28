@@ -27,7 +27,11 @@ const PostModal = () => {
 		isLoading: isPostLoading,
 		isSuccess: isPostSuccess
 	} = useGetPostsQuery(undefined, {
-		selectFromResult: ({ data, isLoading: isPostLoading, isSuccess: isPostSuccess }) => ({
+		selectFromResult: ({
+			data,
+			isLoading: isPostLoading,
+			isSuccess: isPostSuccess
+		}) => ({
 			post: data?.entities[postId],
 			isLoading: isPostLoading,
 			isSuccess: isPostSuccess
@@ -42,7 +46,11 @@ const PostModal = () => {
 		isLoading: isUserLoading,
 		isSuccess: isUserSuccess
 	} = useGetUsersQuery(undefined, {
-		selectFromResult: ({ data, isLoading: isUserLoading, isSuccess: isUserSuccess }) => ({
+		selectFromResult: ({
+			data,
+			isLoading: isUserLoading,
+			isSuccess: isUserSuccess
+		}) => ({
 			user: data?.entities[post?.user],
 			isLoading: isUserLoading,
 			isSuccess: isUserSuccess
@@ -96,9 +104,13 @@ const PostModal = () => {
 					<div className='flex flex-col gap-2 border-y border-neutral-900 mx-2'>
 						<ButtonsPost key={postId} postId={postId} liked={liked} />
 
-						<div className='mx-3 font-sans font-semibold text-sm text-white'>{postLikes} likes</div>
+						<div className='mx-3 font-sans font-semibold text-sm text-white'>
+							{postLikes} likes
+						</div>
 
-						<div className='mx-3 mb-2 font-sans text-xs text-white'>{postDate}</div>
+						<div className='mx-3 mb-2 font-sans text-xs text-white'>
+							{postDate}
+						</div>
 					</div>
 
 					<CreateComment key={userId} postId={postId} userId={userId} />

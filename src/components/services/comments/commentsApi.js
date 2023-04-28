@@ -25,7 +25,10 @@ export const commentsApi = apiSlice.injectEndpoints({
 			},
 			providesTags: (result, error, arg) => {
 				if (result?.ids) {
-					return [{ type: 'Comment', id: 'LIST' }, ...result.ids.map((id) => ({ type: 'Comment', id }))]
+					return [
+						{ type: 'Comment', id: 'LIST' },
+						...result.ids.map((id) => ({ type: 'Comment', id }))
+					]
 				} else {
 					return [{ type: 'Comment', id: 'LIST' }]
 				}

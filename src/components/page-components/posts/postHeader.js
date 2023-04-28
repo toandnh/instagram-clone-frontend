@@ -5,7 +5,13 @@ import { Button } from '@mui/material'
 import ButtonFollow from '../buttons/buttonFollow'
 import ButtonSettingPost from '../buttons/buttonSettingPost'
 
-const PostHeader = ({ userId, username, userAvatar, postId, isAuthorizedUserPost }) => {
+const PostHeader = ({
+	userId,
+	username,
+	userAvatar,
+	postId,
+	isAuthorizedUserPost
+}) => {
 	return (
 		<div className='flex flex-row items-center border-b border-neutral-900 px-2 py-1'>
 			<Button
@@ -20,7 +26,11 @@ const PostHeader = ({ userId, username, userAvatar, postId, isAuthorizedUserPost
 					padding: '0'
 				}}
 			>
-				<img src={userAvatar} alt='avatar' className='h-[30px] aspect-square rounded-full' />
+				<img
+					src={userAvatar}
+					alt='avatar'
+					className='h-[30px] aspect-square rounded-full'
+				/>
 			</Button>
 
 			<div className='grow flex flex-row'>
@@ -41,13 +51,22 @@ const PostHeader = ({ userId, username, userAvatar, postId, isAuthorizedUserPost
 					{username}
 				</Button>
 
-				<div className={isAuthorizedUserPost ? 'hidden' : 'flex flex-row items-center gap-2 text-white'}>
+				<div
+					className={
+						isAuthorizedUserPost
+							? 'hidden'
+							: 'flex flex-row items-center gap-2 text-white'
+					}
+				>
 					&bull;
 					<ButtonFollow followId={userId} />
 				</div>
 			</div>
 
-			<ButtonSettingPost postId={postId} isAuthorizedUserPost={isAuthorizedUserPost} />
+			<ButtonSettingPost
+				postId={postId}
+				isAuthorizedUserPost={isAuthorizedUserPost}
+			/>
 		</div>
 	)
 }

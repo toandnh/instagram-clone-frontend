@@ -3,12 +3,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { ClickAwayListener } from '@mui/base'
-import { Tooltip, Popper, Modal, List, ListItem, ListItemButton, ListItemText } from '@mui/material'
+import {
+	Tooltip,
+	Popper,
+	Modal,
+	List,
+	ListItem,
+	ListItemButton,
+	ListItemText
+} from '@mui/material'
 import { Slide, createTheme, ThemeProvider } from '@mui/material'
 
 import { default as MiniVariantDrawer } from './miniVariantDrawer'
 
-import { setLocationChanged, locationChanged } from '../../features/location/locationSlice'
+import {
+	setLocationChanged,
+	locationChanged
+} from '../../features/location/locationSlice'
 import { setCreateOpened, createOpened } from '../../features/modal/modalSlice'
 
 import { default as simpleLogo } from './../../images/logo.png'
@@ -146,7 +157,11 @@ const Sidebar = () => {
 
 	return (
 		<ClickAwayListener onClickAway={handleClickOutside}>
-			<MiniVariantDrawer variant='permanent' open={drawerOpened} PaperProps={{ sx: style.drawer }}>
+			<MiniVariantDrawer
+				variant='permanent'
+				open={drawerOpened}
+				PaperProps={{ sx: style.drawer }}
+			>
 				<ThemeProvider theme={theme}>
 					<List sx={{ flexGrow: '0', padding: '2rem 1rem' }}>
 						<ListItem disablePadding>
@@ -158,7 +173,11 @@ const Sidebar = () => {
 								sx={{ height: '3rem', margin: drawerOpened ? '0 0.5rem' : '0' }}
 							>
 								{drawerOpened ? (
-									<img src={fullLogo} alt='logo' className='h-[30px] aspect-[4/1]' />
+									<img
+										src={fullLogo}
+										alt='logo'
+										className='h-[30px] aspect-[4/1]'
+									/>
 								) : (
 									<img src={simpleLogo} alt='logo' className={style.icon} />
 								)}
@@ -166,10 +185,26 @@ const Sidebar = () => {
 						</ListItem>
 					</List>
 
-					<List sx={{ display: 'flex', flexDirection: 'column', flexGrow: '6', gap: '0.5rem' }}>
+					<List
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							flexGrow: '6',
+							gap: '0.5rem'
+						}}
+					>
 						<ListItem disablePadding>
-							<ListItemButton component={Link} to='/' onClick={handleClickOutside} sx={style.button}>
-								<Tooltip title={drawerOpened ? '' : 'Home'} placement='right' arrow>
+							<ListItemButton
+								component={Link}
+								to='/'
+								onClick={handleClickOutside}
+								sx={style.button}
+							>
+								<Tooltip
+									title={drawerOpened ? '' : 'Home'}
+									placement='right'
+									arrow
+								>
 									<img src={home} alt='home' className={style.icon} />
 								</Tooltip>
 								<ListItemText primary='Home' sx={style.text} />
@@ -214,7 +249,11 @@ const Sidebar = () => {
 
 						<ListItem disablePadding>
 							<ListItemButton component={Link} to='/explore' sx={style.button}>
-								<Tooltip title={drawerOpened ? '' : 'Explore'} placement='right' arrow>
+								<Tooltip
+									title={drawerOpened ? '' : 'Explore'}
+									placement='right'
+									arrow
+								>
 									<img src={explore} alt='explore' className={style.icon} />
 								</Tooltip>
 								<ListItemText primary='Explore' sx={style.text} />
@@ -223,7 +262,11 @@ const Sidebar = () => {
 
 						<ListItem disablePadding>
 							<ListItemButton component={Link} to='/reels' sx={style.button}>
-								<Tooltip title={drawerOpened ? '' : 'Reels'} placement='right' arrow>
+								<Tooltip
+									title={drawerOpened ? '' : 'Reels'}
+									placement='right'
+									arrow
+								>
 									<img src={reels} alt='reels' className={style.icon} />
 								</Tooltip>
 								<ListItemText primary='Reels' sx={style.text} />
@@ -232,7 +275,11 @@ const Sidebar = () => {
 
 						<ListItem disablePadding>
 							<ListItemButton component={Link} to='/messages' sx={style.button}>
-								<Tooltip title={drawerOpened ? '' : 'Messages'} placement='right' arrow>
+								<Tooltip
+									title={drawerOpened ? '' : 'Messages'}
+									placement='right'
+									arrow
+								>
 									<img src={messenger} alt='messages' className={style.icon} />
 								</Tooltip>
 								<ListItemText primary='Messages' sx={style.text} />
@@ -277,13 +324,21 @@ const Sidebar = () => {
 
 						<ListItem disablePadding>
 							<ListItemButton sx={style.button} onClick={handleCreateOpen}>
-								<Tooltip title={drawerOpened ? '' : 'Create'} placement='right' arrow>
+								<Tooltip
+									title={drawerOpened ? '' : 'Create'}
+									placement='right'
+									arrow
+								>
 									<img src={add} alt='create' className={style.icon} />
 								</Tooltip>
 								<ListItemText primary='Create' sx={style.text} />
 							</ListItemButton>
 							<Modal
-								sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+								sx={{
+									display: 'flex',
+									justifyContent: 'center',
+									alignItems: 'center'
+								}}
 								open={createHasOpened}
 								onClose={handleCreateClose}
 							>
@@ -294,8 +349,16 @@ const Sidebar = () => {
 						</ListItem>
 
 						<ListItem disablePadding>
-							<ListItemButton component={Link} to={`/profile/${userId}`} sx={style.button}>
-								<Tooltip title={drawerOpened ? '' : 'Profile'} placement='right' arrow>
+							<ListItemButton
+								component={Link}
+								to={`/profile/${userId}`}
+								sx={style.button}
+							>
+								<Tooltip
+									title={drawerOpened ? '' : 'Profile'}
+									placement='right'
+									arrow
+								>
 									<img src={user} alt='profile' className={style.icon} />
 								</Tooltip>
 								<ListItemText primary='Profile' sx={style.text} />
@@ -303,10 +366,17 @@ const Sidebar = () => {
 						</ListItem>
 					</List>
 
-					<List sx={{ display: 'flex', flexGrow: '1', justifyContent: 'center' }}>
+					<List
+						sx={{ display: 'flex', flexGrow: '1', justifyContent: 'center' }}
+					>
 						<ListItem disablePadding>
 							<ListItemButton sx={style.button} onClick={toggleMoreClick}>
-								<Tooltip title={drawerOpened ? '' : 'More'} placement='right' arrow ref={moreRef}>
+								<Tooltip
+									title={drawerOpened ? '' : 'More'}
+									placement='right'
+									arrow
+									ref={moreRef}
+								>
 									<img src={more} alt='more' className={style.icon} />
 								</Tooltip>
 								<ListItemText primary='More' sx={style.text} />
@@ -326,7 +396,12 @@ const Sidebar = () => {
 								transition
 							>
 								{({ TransitionProps }) => (
-									<Slide {...TransitionProps} in={moreOpened} direction='right' timeout={300}>
+									<Slide
+										{...TransitionProps}
+										in={moreOpened}
+										direction='right'
+										timeout={300}
+									>
 										<div>
 											<More />
 										</div>

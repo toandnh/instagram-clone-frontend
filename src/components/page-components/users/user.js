@@ -45,7 +45,11 @@ const User = ({ userId }) => {
 		content = (
 			<div className='h-16 grid grid-cols-2 p-4 items-center'>
 				<div className='h-10 flex justify-start items-center gap-4'>
-					<img src={img_link} alt='avatar' className='h-[45px] aspect-square rounded-full' />
+					<img
+						src={img_link}
+						alt='avatar'
+						className='h-[45px] aspect-square rounded-full'
+					/>
 					{desc}
 				</div>
 

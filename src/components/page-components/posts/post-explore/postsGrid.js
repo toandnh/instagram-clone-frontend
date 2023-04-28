@@ -52,7 +52,9 @@ const PostsGrid = ({ width }) => {
 			: null
 
 		content = (
-			<div className={`min-w-[${MIN_WIDTH}px] flex flex-row gap-${gapSize} flex-wrap my-4 mx-16`}>
+			<div
+				className={`min-w-[${MIN_WIDTH}px] flex flex-row gap-${gapSize} flex-wrap my-4 mx-16`}
+			>
 				{postsGrid}
 			</div>
 		)

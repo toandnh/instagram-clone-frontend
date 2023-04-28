@@ -1,6 +1,12 @@
 import { useState } from 'react'
 
-import { Button, Modal, ListItem, ListItemButton, ListItemText } from '@mui/material'
+import {
+	Button,
+	Modal,
+	ListItem,
+	ListItemButton,
+	ListItemText
+} from '@mui/material'
 
 import useAuth from '../../hooks/useAuth'
 
@@ -46,7 +52,11 @@ const UserEdit = () => {
 			<div className='bg-neutral-900 h-screen flex justify-center font-sans text-white overflow-y-scroll'>
 				<div className='bg-black h-full w-4/5 flex justify-center gap-4 border border-neutral-700 my-8'>
 					<div className='flex flex-row gap-8 mt-8'>
-						<img src={img_link} alt='avatar' className='h-[45px] aspect-square rounded-full' />
+						<img
+							src={img_link}
+							alt='avatar'
+							className='h-[45px] aspect-square rounded-full'
+						/>
 
 						<div className='flex flex-col'>
 							<div>{user.username}</div>
@@ -66,7 +76,11 @@ const UserEdit = () => {
 								Change profile photo
 							</Button>
 							<Modal
-								sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+								sx={{
+									display: 'flex',
+									justifyContent: 'center',
+									alignItems: 'center'
+								}}
 								open={postOpened}
 								onClose={handleModalClose}
 							>
@@ -85,7 +99,11 @@ const UserEdit = () => {
 										>
 											<ListItemText
 												primary='Cancel'
-												sx={{ display: 'flex', justifyContent: 'center', color: 'white' }}
+												sx={{
+													display: 'flex',
+													justifyContent: 'center',
+													color: 'white'
+												}}
 											/>
 										</ListItemButton>
 									</ListItem>

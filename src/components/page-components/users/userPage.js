@@ -47,13 +47,23 @@ const UserPage = () => {
 				<div className='grid grid-cols-[1fr_2fr_5fr] gap-8 justify-items-center border-b border-neutral-700 px-8 pb-8'>
 					<div />
 
-					<img src={img_link} alt='avatar' className='h-[150px] aspect-square rounded-full' />
+					<img
+						src={img_link}
+						alt='avatar'
+						className='h-[150px] aspect-square rounded-full'
+					/>
 
 					<div className='grid grid-rows-3 h-full w-full'>
 						<div className='flex gap-4 items-center font-sans text-white'>
 							<p>{username}</p>
 
-							<div className={isAuthorizedUserPage ? 'flex flex-row gap-4 items-center' : 'hidden'}>
+							<div
+								className={
+									isAuthorizedUserPage
+										? 'flex flex-row gap-4 items-center'
+										: 'hidden'
+								}
+							>
 								<Button
 									component={Link}
 									to='/edit'
@@ -72,10 +82,20 @@ const UserPage = () => {
 								>
 									Edit profile
 								</Button>
-								<img src={setting} alt='home' className='h-[25px] aspect-square' />
+								<img
+									src={setting}
+									alt='home'
+									className='h-[25px] aspect-square'
+								/>
 							</div>
 
-							<div className={!isAuthorizedUserPage ? 'flex flex-row gap-4 items-center' : 'hidden'}>
+							<div
+								className={
+									!isAuthorizedUserPage
+										? 'flex flex-row gap-4 items-center'
+										: 'hidden'
+								}
+							>
 								<ButtonFollow followId={userId} />
 								<Button
 									sx={{

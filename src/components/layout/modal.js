@@ -22,7 +22,11 @@ const Modal = () => {
 		<>
 			{opened ? (
 				<MuiModal
-					sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+					sx={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center'
+					}}
 					open={opened}
 					onClose={handleClose}
 				>

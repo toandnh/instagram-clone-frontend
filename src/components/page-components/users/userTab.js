@@ -35,7 +35,11 @@ const UserTab = ({ userId }) => {
 	return (
 		<div ref={ref}>
 			<Box sx={{ display: 'flex', justifyContent: 'center', padding: '0' }}>
-				<Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: 'white' } }}>
+				<Tabs
+					value={value}
+					onChange={handleChange}
+					TabIndicatorProps={{ style: { background: 'white' } }}
+				>
 					<Tab label={<span className='text-white'>POSTS</span>} />
 					<Tab label={<span className='text-white'>SAVED</span>} />
 					<Tab label={<span className='text-white'>TAGGED</span>} />
@@ -44,8 +48,12 @@ const UserTab = ({ userId }) => {
 			<TabPanel value={value} index={0}>
 				<PostsGrid key={userId} userId={userId} width={width} />
 			</TabPanel>
-			<TabPanel value={value} index={1}></TabPanel>
-			<TabPanel value={value} index={2}></TabPanel>
+			<TabPanel value={value} index={1}>
+				Nothing to display!
+			</TabPanel>
+			<TabPanel value={value} index={2}>
+				Nothing to display!
+			</TabPanel>
 		</div>
 	)
 }
