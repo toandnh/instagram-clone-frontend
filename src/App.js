@@ -21,7 +21,7 @@ import Profile from './components/pages/profile/profile'
 import UserEdit from './components/page-components/users/userEdit'
 
 import UserPage from './components/page-components/users/userPage'
-import Modal from './components/layout/modal'
+import Modal from './components/page-components/modal'
 
 function App() {
 	const postModal = useSelector(postOpened)

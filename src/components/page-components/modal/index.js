@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 import { Modal as MuiModal } from '@mui/material'
 
-import { setPostOpened, postOpened } from '../features/modal/modalSlice'
+import { setPostOpened, postOpened } from '../../features/modal/modalSlice'
 
-import PostModal from '../page-components/posts/post-explore/postModal'
+import PostModal from '../posts/post-explore/postModal'
 
 const Modal = () => {
 	const opened = useSelector(postOpened)
