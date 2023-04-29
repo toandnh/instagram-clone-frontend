@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 import { useRefreshMutation } from '../services/auth/authApi'
 import { currentToken } from '../features/auth/authSlice'
@@ -10,6 +10,8 @@ import usePersist from '../hooks/usePersist'
 import SpinnerLoader from '../components/spinner-loader/spinnerLoader'
 
 const PersistLogin = () => {
+	const navigate = useNavigate()
+
 	const [persist] = usePersist()
 
 	const token = useSelector(currentToken)
@@ -25,7 +27,7 @@ const PersistLogin = () => {
 			const verifyRefreshToken = async () => {
 				console.log('Verifying refresh token...')
 				try {
-					await refresh()
+					await refresh(navigate)
 					setTrueSuccess(true)
 				} catch (err) {
 					console.error(err)
