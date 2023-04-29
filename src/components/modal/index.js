@@ -30,13 +30,13 @@ const Modal = () => {
 					open={opened}
 					onClose={handleClose}
 				>
-					<div className='h-[95%] aspect-[9/6] flex justify-center items-center'>
+					<div className='w-[80%] aspect-[9/6] flex justify-center items-center'>
 						<PostModal />
 					</div>
 				</MuiModal>
 			) : (
-				<div className='bg-neutral-900 min-w-[1000px] h-full w-full flex justify-center items-center overflow-hidden'>
-					<div className='min-h-[600px] h-[90%] aspect-[9/6]'>
+				<div className='bg-neutral-900 h-full w-full flex justify-center items-center overflow-hidden'>
+					<div className='w-[90%] aspect-[9/6]'>
 						<PostModal />
 					</div>
 				</div>

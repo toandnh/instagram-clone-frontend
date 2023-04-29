@@ -41,7 +41,12 @@ const PostPreview = ({ postId, postSize }) => {
 					to={`/posts/${postId}`}
 					state={{ background: location }}
 					onClick={handleOpen}
-					sx={{ height: `${postSize}px`, aspectRatio: '1 / 1', padding: '0' }}
+					sx={{
+						height: `${postSize}px`,
+						minHeight: '300px',
+						aspectRatio: '1 / 1',
+						padding: '0'
+					}}
 				>
 					<img
 						src={preview}

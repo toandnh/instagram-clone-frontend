@@ -50,7 +50,7 @@ const UserPage = () => {
 					<img
 						src={img_link}
 						alt='avatar'
-						className='h-[150px] aspect-square rounded-full'
+						className='max-h-[150px] aspect-square rounded-full'
 					/>
 
 					<div className='grid grid-rows-3 h-full w-full'>
