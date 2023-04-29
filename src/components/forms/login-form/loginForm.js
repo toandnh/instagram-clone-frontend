@@ -65,7 +65,7 @@ const LoginForm = () => {
 			} else if (err.status === 400) {
 				setErrMessage('Incorrect username or password!')
 			} else if (err.status === 401) {
-				setErrMessage('Unauthorized!')
+				setErrMessage('Username and password does not match!')
 			} else {
 				setErrMessage(err.data?.message)
 			}

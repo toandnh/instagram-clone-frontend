@@ -35,7 +35,9 @@ const UsersList = () => {
 			  )
 			: null
 
-		content = <div className='bg-black h-full flex flex-col'>{usersList}</div>
+		content = (
+			<div className='bg-black h-full flex flex-col pt-2'>{usersList}</div>
+		)
 	}
 
 	return content

@@ -7,8 +7,7 @@ import { currentToken } from '../features/auth/authSlice'
 const useAuth = () => {
 	const token = useSelector(currentToken)
 
-	let userId = ''
-	let username = ''
+	let userId, username
 	if (token) {
 		userId = jwtDecode(token).user.id
 		username = jwtDecode(token).user.username

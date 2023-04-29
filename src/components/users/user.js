@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { useGetUsersQuery } from '../../services/users/usersApi'
 
 import ButtonFollow from '../buttons/buttonFollow'
@@ -17,6 +19,8 @@ const User = ({ userId }) => {
 		refetchOnMountOrArgChange: true
 	})
 
+	const navigate = useNavigate()
+
 	let content
 
 	if (isLoading) content = <SpinnerLoader />
@@ -27,31 +31,32 @@ const User = ({ userId }) => {
 		let desc
 		if (user.name) {
 			desc = (
-				<div className='grid grid-rows-3 font-sans text-white gap-0'>
+				<div className='grid grid-rows-2 font-sans text-white gap-0'>
 					<div className=''>{user.username}</div>
-					<div className=''>{user.name}</div>
-					<div className=''></div>
+					<div className='flex justify-start'>{user.name}</div>
 				</div>
 			)
 		} else {
 			desc = (
-				<div className='grid grid-rows-2 font-sans text-white gap-0'>
+				<div className='grid font-sans text-white gap-0'>
 					<div className=''>{user.username}</div>
-					<div className=''></div>
 				</div>
 			)
 		}
 
 		content = (
 			<div className='h-16 grid grid-cols-2 p-4 items-center'>
-				<div className='h-10 flex justify-start items-center gap-4'>
+				<button
+					onClick={() => navigate(`/profile/${userId}`)}
+					className='h-10 flex justify-start items-center gap-4'
+				>
 					<img
 						src={img_link}
 						alt='avatar'
 						className='h-[45px] aspect-square rounded-full'
 					/>
 					{desc}
-				</div>
+				</button>
 
 				<div className='flex justify-end'>
 					<ButtonFollow followId={userId} />

@@ -1,5 +1,9 @@
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material'
 
+import useAuth from '../../hooks/useAuth'
+
+import { useUpdateUserMutation } from '../../services/users/usersApi'
+
 const style = {
 	title: {
 		display: 'flex',
@@ -22,6 +26,28 @@ const style = {
 }
 
 const UserAvatarChange = () => {
+	const { userId } = useAuth()
+
+	const [updateUser] = useUpdateUserMutation()
+
+	const handleUpload = (e) => {
+		e.preventDefault()
+		try {
+			//updateUser({ id: userId, avatar })
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+	const handleRemove = async (e) => {
+		e.preventDefault()
+		try {
+			updateUser({ id: userId, avatar: 'default/default_avatar.jpg' })
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
 	return (
 		<List
 			sx={{
@@ -56,6 +82,7 @@ const UserAvatarChange = () => {
 			<ListItem disablePadding sx={style.item}>
 				<ListItemButton disableGutters sx={style.button}>
 					<ListItemText
+						onClick={handleRemove}
 						primary='Remove Current Photo'
 						primaryTypographyProps={{
 							color: 'rgb(225 29 72)',

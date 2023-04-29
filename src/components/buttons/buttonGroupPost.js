@@ -11,7 +11,8 @@ import bookmark from '../../images/bookmark.png'
 const ButtonsGroupPost = ({ postId, liked }) => {
 	const [updatePost] = useUpdatePostMutation()
 
-	const handleLikeClick = async () => {
+	const handleLikeClick = async (e) => {
+		e.preventDefault()
 		try {
 			await updatePost({ id: postId, like: 'true' })
 		} catch (err) {

@@ -42,8 +42,8 @@ const SearchResult = ({ user }) => {
 					/>
 				</div>
 				<div className='flex flex-col font-sans text-base'>
-					<div className='text-white font-semibold'>{username}</div>
-					<div className='text-neutral-500'>{name}</div>
+					<p className='text-white font-semibold'>{username}</p>
+					<p className='flex justify-start text-neutral-500'>{name}</p>
 				</div>
 			</div>
 		</Button>

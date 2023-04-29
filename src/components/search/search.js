@@ -52,7 +52,7 @@ const Search = () => {
 				<h1 className='font-sans text-white text-2xl font-semibold'>Search</h1>
 				<input
 					type='text'
-					className='bg-neutral-700 h-9 w-full p-3 rounded text-white'
+					className='bg-neutral-700 h-9 w-full p-3 rounded text-white focus:outline-none'
 					value={searchQuery}
 					onChange={handleSearchChange}
 					placeholder='Search'
