@@ -16,7 +16,7 @@ import ButtonsGroupPost from '../../buttons/buttonGroupPost'
 import CreateComment from '../../comments/createComment'
 import SpinnerLoader from '../../spinner-loader/spinnerLoader'
 
-const LINK = 'http://localhost:3500/'
+const LINK = process.env.REACT_APP_URL
 
 const Post = ({ postId }) => {
 	const { userId: authorizedUserId } = useAuth()

@@ -7,7 +7,7 @@ import { useGetPostsQuery } from '../../../services/posts/postsApi'
 
 import { setPostOpened } from '../../../features/modal/modalSlice'
 
-const LINK = 'http://localhost:3500/uploads/'
+const LINK = process.env.REACT_APP_URL + 'uploads/'
 
 const PostPreview = ({ postId, postSize }) => {
 	const { post, isFetching, isSuccess } = useGetPostsQuery(undefined, {

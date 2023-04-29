@@ -16,7 +16,7 @@ import UserAvatarChange from './userAvatarChange'
 import UserEditForm from './userEditForm'
 import SpinnerLoader from '../spinner-loader/spinnerLoader'
 
-const LINK = 'http://localhost:3500/'
+const LINK = process.env.REACT_APP_URL
 
 const UserEdit = () => {
 	const { userId } = useAuth()
