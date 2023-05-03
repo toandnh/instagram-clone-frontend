@@ -111,12 +111,12 @@ const LoginForm = () => {
 				<Divider />
 
 				<div className='font-sans font-semibold'>
-					<a href='https://www.w3schools.com/' target='_blank' rel='noreferrer'>
+					<a href='' target='_blank' rel='noreferrer'>
 						Log in with Facebook!
 					</a>
 				</div>
 				<div className='font-sans text-xs'>
-					<a href='https://www.w3schools.com/' target='_blank' rel='noreferrer'>
+					<a href='' target='_blank' rel='noreferrer'>
 						Forgot password?
 					</a>
 				</div>

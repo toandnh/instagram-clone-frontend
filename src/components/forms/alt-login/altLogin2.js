@@ -3,12 +3,7 @@ const AltLogin2 = () => {
 		<div className='h-[80px] grid justify-items-center items-center border border-solid border-stone-300 font-sans'>
 			<div>
 				Have an account?
-				<a
-					href='https://www.w3schools.com/'
-					className='font-semibold'
-					target='_blank'
-					rel='noreferrer'
-				>
+				<a href='' className='font-semibold' target='_blank' rel='noreferrer'>
 					{' '}
 					Log in
 				</a>

@@ -5,10 +5,10 @@ import Footer from '../../components/footer/footer'
 
 const Login2 = () => {
 	return (
-		<div className='bg-white h-screen w-screen grid grid-rows-[5fr_110px] gap-2.5'>
+		<div className='bg-neutral-50 h-screen w-screen grid grid-rows-[5fr_110px] gap-2.5'>
 			<div className='grid grid-cols-[3fr_2fr_3fr] mt-10 pb-10'>
 				<div />
-				<div className='grid grid-rows-[5fr_1fr_1fr] gap-2.5 h-full w-full'>
+				<div className='grid grid-rows-[5fr_1fr_1fr] gap-2.5 h-full w-[380px]'>
 					<LoginForm />
 					<AltLogin1 />
 					<GetApp />

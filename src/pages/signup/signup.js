@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer'
 
 const Signup = () => {
 	return (
-		<div className='bg-white w-screen grid grid-rows-[5fr_110px] gap-2.5'>
+		<div className='bg-neutral-50 w-screen grid grid-rows-[5fr_110px] gap-2.5'>
 			<div className='grid grid-cols-[3fr_2fr_3fr] mt-5 pb-10'>
 				<div />
 
