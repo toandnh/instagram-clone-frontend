@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom'
+
 const AltLogin2 = () => {
 	return (
 		<div className='h-[80px] grid justify-items-center items-center border border-solid border-stone-300 font-sans'>
 			<div>
 				Have an account?
-				<a href='' className='font-semibold' target='_blank' rel='noreferrer'>
+				<Link to='/login' className='font-semibold'>
 					{' '}
 					Log in
-				</a>
+				</Link>
 			</div>
 		</div>
 	)

@@ -115,24 +115,24 @@ const SignupForm = () => {
 				<div className='w-72 px-3 font-sans text-xs text-center'>
 					People who use our service may have uploaded your contact information
 					to Instagram.
-					<a href='https://www.w3schools.com/' target='_blank' rel='noreferrer'>
+					<a href='' target='_blank' rel='noreferrer'>
 						{' '}
 						Learn More
 					</a>
 				</div>
 				<div className='w-72 px-3 font-sans text-xs text-center'>
 					By signing up, you agree to our
-					<a href='https://www.w3schools.com/' target='_blank' rel='noreferrer'>
+					<a href='' target='_blank' rel='noreferrer'>
 						{' '}
 						Terms
 					</a>
 					,
-					<a href='https://www.w3schools.com/' target='_blank' rel='noreferrer'>
+					<a href='' target='_blank' rel='noreferrer'>
 						{' '}
 						Privacy Policy{' '}
 					</a>{' '}
 					and
-					<a href='https://www.w3schools.com/' target='_blank' rel='noreferrer'>
+					<a href='' target='_blank' rel='noreferrer'>
 						{' '}
 						Cookies Policy
 					</a>
