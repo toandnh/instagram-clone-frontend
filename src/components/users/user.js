@@ -5,7 +5,7 @@ import { useGetUsersQuery } from '../../services/users/usersApi'
 import ButtonFollow from '../buttons/buttonFollow'
 import SpinnerLoader from '../spinner-loader/spinnerLoader'
 
-const LINK = process.env.BASE_URL
+const LINK = process.env.REACT_APP_BASE_URL
 
 const User = ({ userId }) => {
 	const { user, isLoading, isSuccess } = useGetUsersQuery(undefined, {

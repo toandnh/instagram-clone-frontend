@@ -12,7 +12,7 @@ import SpinnerLoader from '../spinner-loader/spinnerLoader'
 
 import setting from '../../images/setting.png'
 
-const LINK = process.env.BASE_URL
+const LINK = process.env.REACT_APP_BASE_URL
 
 const UserPage = () => {
 	const { userId: authorizedUserId } = useAuth()
