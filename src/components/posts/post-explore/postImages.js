@@ -8,7 +8,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import { useGetPostsQuery } from '../../../services/posts/postsApi'
 import SpinnerLoader from '../../spinner-loader/spinnerLoader'
 
-const LINK = process.env.REACT_APP_URL + 'uploads/'
+const LINK = process.env.BASE_URL + 'uploads/'
 
 const PostImages = ({ postId }) => {
 	const [activeSlide, setActiveSlide] = useState(0)

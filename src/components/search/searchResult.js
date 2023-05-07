@@ -5,7 +5,7 @@ import { Button } from '@mui/material'
 
 import { setLocationChanged } from '../../features/location/locationSlice'
 
-const LINK = process.env.REACT_APP_URL
+const LINK = process.env.BASE_URL
 
 const SearchResult = ({ user }) => {
 	const { _id: userId, username, name, avatar } = user
